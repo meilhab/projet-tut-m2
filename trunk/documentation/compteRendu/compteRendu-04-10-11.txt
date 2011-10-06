@@ -1,0 +1,28 @@
+        Compte rendu de la réunion du 04/10/2011
+
+Sujet : 
+    Présentation du projet avec les tuteurs
+
+Présents : 
+    Catherine Almeida
+    Benoit Meilhac
+    Ahmed Hammad
+    Hassan Mountassir
+
+Résumé :
+    Présentation des outils qui seront utilisés : SysML, Topcases et Ticc.
+
+    1- SysML -> langage de modélisation, une extension d'UML (contient des diagrammes d'exigences et paramètriques)
+    2- Topcased -> outil permettant de générer des diagrammes SysML et de sortir un fichier contenant les informations principales de ce diagramme
+    3- Ticc -> outil permettant de comparer des automates d'interface
+
+    Mise au point : réunions toutes les semaines le mardi à 8h30
+
+Travail à faire pour la prochaine semaine :
+    - Découverte des différents outils qui seront utilisés lors du projet.
+        -> documentation sur les outils et sur leur installation
+    - Création d'exemple pour se familiariser avec les outils.
+
+
+
+
