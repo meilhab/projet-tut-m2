@@ -10,7 +10,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Sequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isComposed" lowerBound="1"
         upperBound="-1" eType="#//Part" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isComposed" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isComposedBy" lowerBound="1"
         upperBound="-1" eType="#//Message" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
@@ -20,12 +20,10 @@
         eType="#//Part" eOpposite="#//Part/receiver"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isCalled" lowerBound="1"
         eType="#//Method" eOpposite="#//Method/method"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isA" lowerBound="1" eType="#//Data"
-        eOpposite="#//Data/method"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isA" lowerBound="1" eType="#//Corps"
+        eOpposite="#//Corps/method"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isDefinedBy" lowerBound="1"
-        eType="#//TypeMessage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sousMessages" upperBound="-1"
-        eType="#//Message"/>
+        eType="#//TypeMessage" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Part">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" upperBound="-1"
@@ -34,14 +32,14 @@
         eType="#//Message" eOpposite="#//Message/receiveFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" upperBound="-1"
         eType="#//Method" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="#//Data"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="#//Corps"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method">
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" lowerBound="1"
         eType="#//Message" eOpposite="#//Message/isCalled"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Data">
+  <eClassifiers xsi:type="ecore:EClass" name="Corps">
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" lowerBound="1"
         eType="#//Message" eOpposite="#//Message/isA"/>
   </eClassifiers>
@@ -50,3 +48,4 @@
   <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//TypeMessage"/>
   <eClassifiers xsi:type="ecore:EClass" name="Seq" eSuperTypes="#//TypeMessage"/>
 </ecore:EPackage>
+

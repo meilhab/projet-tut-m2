@@ -93,7 +93,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_nLx_hxE6EeG2wLFRmgBDvQ"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_nLxYcRE6EeG2wLFRmgBDvQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="SequenceMetamodel.ecore#//Data"/>
+    <element xmi:type="ecore:EClass" href="SequenceMetamodel.ecore#//Corps"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nLxYchE6EeG2wLFRmgBDvQ" x="600" y="270"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_eBYQABE7EeG2wLFRmgBDvQ" type="1001">
@@ -192,14 +192,14 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_GJ8WQBE6EeG2wLFRmgBDvQ" type="3002" source="_CkJo8PlMEeC1fpuGkZmZ4Q" target="_Nf6L4PlMEeC1fpuGkZmZ4Q">
     <children xmi:type="notation:Node" xmi:id="_GJ89UBE6EeG2wLFRmgBDvQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_GJ89URE6EeG2wLFRmgBDvQ" x="-47" y="-41"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_GJ89URE6EeG2wLFRmgBDvQ" x="-48" y="-43"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_GJ89UhE6EeG2wLFRmgBDvQ" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_GJ89UxE6EeG2wLFRmgBDvQ" x="-8" y="-15"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_GJ8WQRE6EeG2wLFRmgBDvQ" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_GJ8WQhE6EeG2wLFRmgBDvQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="SequenceMetamodel.ecore#//Sequence/isComposed.1"/>
+    <element xmi:type="ecore:EReference" href="SequenceMetamodel.ecore#//Sequence/isComposedBy"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GJ8WQxE6EeG2wLFRmgBDvQ" points="[-38, 37, 98, -104]$[-143, 121, -7, -20]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GJ-ygBE6EeG2wLFRmgBDvQ" id="(0.029411764705882353,0.6976744186046512)"/>
   </edges>
@@ -337,7 +337,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_MkmaoRE8EeG2wLFRmgBDvQ" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_MkmaohE8EeG2wLFRmgBDvQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="SequenceMetamodel.ecore#//Data/method"/>
+    <element xmi:type="ecore:EReference" href="SequenceMetamodel.ecore#//Corps/method"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MkmaoxE8EeG2wLFRmgBDvQ" points="[0, 0, 333, 123]$[-333, 0, 0, 123]$[-333, -121, 0, 2]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OhXpUBE8EeG2wLFRmgBDvQ" id="(0.00980392156862745,0.4186046511627907)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OhXpURE8EeG2wLFRmgBDvQ" id="(0.3235294117647059,0.9534883720930233)"/>
@@ -378,18 +378,5 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_--Co4xE8EeG2wLFRmgBDvQ" points="[-12, -20, 102, 114]$[-12, -62, 102, 72]$[-110, -62, 4, 72]$[-110, -99, 4, 35]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_--D3ABE8EeG2wLFRmgBDvQ" id="(0.45098039215686275,0.16279069767441862)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_foY30BFAEeG2wLFRmgBDvQ" type="3002" source="_Nf6L4PlMEeC1fpuGkZmZ4Q" target="_Nf6L4PlMEeC1fpuGkZmZ4Q">
-    <children xmi:type="notation:Node" xmi:id="_foY31BFAEeG2wLFRmgBDvQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_foY31RFAEeG2wLFRmgBDvQ" x="-36" y="-12"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_foZe4BFAEeG2wLFRmgBDvQ" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_foZe4RFAEeG2wLFRmgBDvQ" x="31" y="-12"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_foY30RFAEeG2wLFRmgBDvQ" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_foY30hFAEeG2wLFRmgBDvQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="SequenceMetamodel.ecore#//Message/sousMessages"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_foY30xFAEeG2wLFRmgBDvQ" points="[-7, -7, 12, -10]$[-38, -39, -19, -42]$[-161, -39, -142, -42]$[-161, 3, -142, 0]$[-21, 3, -2, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_foatABFAEeG2wLFRmgBDvQ" id="(0.21568627450980393,0.18604651162790697)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hijecBFAEeG2wLFRmgBDvQ" id="(0.029411764705882353,0.2558139534883721)"/>
-  </edges>
 </notation:Diagram>
+
