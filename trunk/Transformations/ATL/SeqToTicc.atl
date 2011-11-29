@@ -1,0 +1,6 @@
+-- @path MetaDiagSequence=/Transformations/MetamodelSeq/SequenceMetamodel.ecore
+-- @path MetaDiagTicc=/Transformations/MetamodelTicc/TiccModel.ecore
+
+module SeqToTicc;
+create DiagTicc : MetaDiagTicc from DiagSequence : MetaDiagSequence;
+
