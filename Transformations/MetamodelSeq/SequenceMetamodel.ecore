@@ -9,7 +9,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isComposed" lowerBound="2"
-        upperBound="-1" eType="#//Part" containment="true"/>
+        upperBound="-1" eType="#//NamedElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isComposedBy" upperBound="-1"
         eType="#//Message" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isDefinedBy" upperBound="-1"
@@ -17,15 +17,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sendTo" lowerBound="1"
-        eType="#//Part" eOpposite="#//Part/sender"/>
+        eType="#//NamedElement" eOpposite="#//NamedElement/sender"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiveFrom" lowerBound="1"
-        eType="#//Part" eOpposite="#//Part/receiver"/>
+        eType="#//NamedElement" eOpposite="#//NamedElement/receiver"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calls" lowerBound="1" eType="#//Method"
         eOpposite="#//Method/isCalled"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="is" lowerBound="1" eType="#//Corps"
-        eOpposite="#//Corps/isCalledBy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Part">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" upperBound="-1"
         eType="#//Message" eOpposite="#//Message/sendTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" upperBound="-1"
@@ -35,10 +33,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Method">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isCalled" upperBound="-1"
         eType="#//Message" eOpposite="#//Message/calls"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Corps">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isCalledBy" lowerBound="1"
-        eType="#//Message" eOpposite="#//Message/is"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMessage">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="2"
