@@ -19,6 +19,10 @@
   <children xmi:type="notation:Node" xmi:id="_iPWRQBp7EeGRnMxODCTaFg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_iPWRQxp7EeGRnMxODCTaFg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_iPW4UBp7EeGRnMxODCTaFg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_K9AoQCGDEeGrgv7OVBeCEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SequenceMetamodel.ecore#//Sequence/nom"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_K9AoQSGDEeGrgv7OVBeCEA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_iPW4URp7EeGRnMxODCTaFg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_iPW4Uhp7EeGRnMxODCTaFg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_iPW4Uxp7EeGRnMxODCTaFg"/>
@@ -54,6 +58,10 @@
       <children xmi:type="notation:Node" xmi:id="_iPZ7oBp7EeGRnMxODCTaFg" type="2001">
         <element xmi:type="ecore:EAttribute" href="SequenceMetamodel.ecore#//NamedElement/id"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_iPZ7oRp7EeGRnMxODCTaFg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hajo0CGCEeGrgv7OVBeCEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SequenceMetamodel.ecore#//NamedElement/nom"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hajo0SGCEeGrgv7OVBeCEA"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_iPYtghp7EeGRnMxODCTaFg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_iPYtgxp7EeGRnMxODCTaFg"/>
