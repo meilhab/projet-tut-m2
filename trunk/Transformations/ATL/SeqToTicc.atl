@@ -1,8 +1,6 @@
--- @path MetaDiagSequence=/Transformations/MetamodelSeq/SequenceMetamodel.ecore
--- @path MetaDiagTicc=/Transformations/MetamodelTicc/TiccModel.ecore
+-- @path SequenceMetamodel=/Transformations/MetamodelSeq/SequenceMetamodel.ecore
+-- @path TiccModel=/Transformations/MetamodelTicc/TiccModel.ecore
 
 module SeqToTicc;
-create DiagTicc : MetaDiagTicc from DiagSequence : MetaDiagSequence;
+create OUT : TiccModel from IN : SequenceMetamodel;
 
-helper context MetaDiagTicc!Message def : isSeqNodeRoot() : Boolean =
-	self.refImmediateComposite().oclIsUndefined();

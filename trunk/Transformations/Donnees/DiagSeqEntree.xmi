@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="SequenceMetamodel">
-
-	<NamedElement id="1" sender="m1" xmi:id="ne1">
-	</NamedElement>
+	<Sequence nom="Composant1" xmi:id="s1">
+		<isComposed xmi:type="NamedElement" xmi:idref="ne1"/>
+		<isComposed xmi:type="NamedElement" xmi:idref="ne2"/>
+		<isComposedBy xmi:type="Message" xmi:idref="m1" />
+	</Sequence>
 	
-	<NamedElement id="2" receiver="m1" xmi:id="ne2">
-	</NamedElement>
-	
-	<Method method="spos" xmi:id="met1"></Method>
-	
+	<NamedElement id="1" nom="emetteur" sender="m1" xmi:id="ne1" />
+	<NamedElement id="2" nom="environnement" receiver="m1" xmi:id="ne2" />
+	<Method nom="spos" xmi:id="met1" />
 	<Message xmi:id="m1">
-		<sendTo xmi:type="Part" xmi:idref="ne1"/>
-		<receiveFrom xmi:type="NamedElement" xmi:idref="ne2"/>
-		<isCalled xmi:type="Method" xmi:idref="met1"/>
+			<sendTo xmi:type="NamedElement" xmi:idref="ne1"/>
+			<receiveFrom xmi:type="NamedElement" xmi:idref="ne2"/>
+			<calls xmi:type="Method" xmi:idref="met1"/>
 	</Message>
-	 
 </xmi:XMI>

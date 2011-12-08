@@ -42,14 +42,6 @@
 		<constant value="name"/>
 		<constant value="__matcher__"/>
 		<constant value="__exec__"/>
-		<constant value="isSeqNodeRoot"/>
-		<constant value="MMetaDiagTicc!Message;"/>
-		<constant value="0"/>
-		<constant value="J.refImmediateComposite():J"/>
-		<constant value="J.oclIsUndefined():J"/>
-		<constant value="8:2-8:6"/>
-		<constant value="8:2-8:30"/>
-		<constant value="8:2-8:47"/>
 	</cp>
 	<field name="1" type="2"/>
 	<field name="3" type="4"/>
@@ -180,24 +172,6 @@
 		</linenumbertable>
 		<localvariabletable>
 			<lve slot="0" name="17" begin="0" end="-1"/>
-		</localvariabletable>
-	</operation>
-	<operation name="41">
-		<context type="42"/>
-		<parameters>
-		</parameters>
-		<code>
-			<load arg="43"/>
-			<call arg="44"/>
-			<call arg="45"/>
-		</code>
-		<linenumbertable>
-			<lne id="46" begin="0" end="0"/>
-			<lne id="47" begin="0" end="1"/>
-			<lne id="48" begin="0" end="2"/>
-		</linenumbertable>
-		<localvariabletable>
-			<lve slot="0" name="17" begin="0" end="2"/>
 		</localvariabletable>
 	</operation>
 </asm>
