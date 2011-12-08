@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="SequenceMetamodel">
 
-	<Part id="1" sender="m1" xmi:id="p1">
-	</Part>
+	<NamedElement id="1" sender="m1" xmi:id="ne1">
+	</NamedElement>
 	
-	<Part id="2" receiver="m1" xmi:id="p2">
-	</Part>
-	
-	<Corps xmi:id="c1">
-		<method xmi:type="Message" xmi:idref="m1"/>
-	</Corps>
+	<NamedElement id="2" receiver="m1" xmi:id="ne2">
+	</NamedElement>
 	
 	<Method method="spos" xmi:id="met1"></Method>
 	
 	<Message xmi:id="m1">
-		<sendTo xmi:type="Part" xmi:idref="p1"/>
-		<receiveFrom xmi:type="Part" xmi:idref="p2"/>
+		<sendTo xmi:type="Part" xmi:idref="ne1"/>
+		<receiveFrom xmi:type="NamedElement" xmi:idref="ne2"/>
 		<isCalled xmi:type="Method" xmi:idref="met1"/>
-		<isA xmi:type="Corps" xmi:idref="c1"/>
 	</Message>
-	
+	 
 </xmi:XMI>
