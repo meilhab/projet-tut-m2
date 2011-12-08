@@ -4,3 +4,5 @@
 module SeqToTicc;
 create DiagTicc : MetaDiagTicc from DiagSequence : MetaDiagSequence;
 
+helper context MetaDiagTicc!Message def : isSeqNodeRoot() : Boolean =
+	self.refImmediateComposite().oclIsUndefined();
