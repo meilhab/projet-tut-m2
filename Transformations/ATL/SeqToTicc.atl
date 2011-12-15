@@ -1,6 +1,0 @@
--- @path SequenceMetamodel=/Transformations/MetamodelSeq/SequenceMetamodel.ecore
--- @path TiccModel=/Transformations/MetamodelTicc/TiccModel.ecore
-
-module SeqToTicc;
-create OUT : TiccModel from IN : SequenceMetamodel;
-
