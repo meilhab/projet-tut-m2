@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SequenceMetamodel">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SequenceMetamodel"
+    nsURI="" nsPrefix="">
   <eClassifiers xsi:type="ecore:EClass" name="SequenceDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contain" lowerBound="1"
-        upperBound="-1" eType="#//Sequences"/>
+        upperBound="-1" eType="#//Sequence" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sequences">
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isComposed" lowerBound="2"
-        upperBound="-1" eType="#//NamedElement"/>
+        upperBound="-1" eType="#//NamedElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isComposedBy" upperBound="-1"
-        eType="#//Message"/>
+        eType="#//Message" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isDefinedBy" upperBound="-1"
-        eType="#//TypeMessage"/>
+        eType="#//TypeMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
@@ -28,7 +29,7 @@
         eType="#//Message" eOpposite="#//Message/sendTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" upperBound="-1"
         eType="#//Message" eOpposite="#//Message/receiveFrom"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method">
@@ -38,9 +39,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeMessage">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="2"
-        upperBound="-1" eType="#//Message"/>
+        upperBound="-1" eType="#//Message" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isContaining" upperBound="-1"
-        eType="#//TypeMessage"/>
+        eType="#//TypeMessage" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Alt" eSuperTypes="#//TypeMessage"/>
   <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//TypeMessage"/>
