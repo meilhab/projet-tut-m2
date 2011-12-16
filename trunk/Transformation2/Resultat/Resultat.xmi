@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Ticc xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="ticcmodel">
+  <possede xsi:type="Module" nom="Composant1" nbEtat="2">
+    <transition xsi:type="LocalInput" nom="spos" source="environnement" destination="emetteur"/>
+  </possede>
+</Ticc>
