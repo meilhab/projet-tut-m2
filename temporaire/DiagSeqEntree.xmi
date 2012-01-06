@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="SequenceMetamodel">
+
+	<SequenceDiagram>
+		<contain xmi:type="Sequences" xmi:idref="s1" />
+	</SequenceDiagram>
+	
+	<Sequences nom="Composant1" xmi:id="s1">
+		<isComposed xmi:type="NamedElement" xmi:idref="ne1"/>
+		<isComposed xmi:type="NamedElement" xmi:idref="ne2"/>
+		<isDefinedBy xmi:type="Loop" xmi:idref="loop1" />
+	</Sequences>
+	
+	<Loop xmi:id="loop1">
+		<contains xmi:type="Message" xmi:idref="m1" />
+		<contains xmi:type="Message" xmi:idref="m2" />
+		<contains xmi:type="Message" xmi:idref="m3" />
+	</Loop>
+	
+	<Message xmi:id="m1">
+		<sendBy xmi:type="NamedElement" xmi:idref="ne2"/>
+		<receiveBy xmi:type="NamedElement" xmi:idref="ne1"/>
+		<calls xmi:type="Method" xmi:idref="met1"/>
+	</Message>
+	
+	<Message xmi:id="m2">
+		<sendBy xmi:type="NamedElement" xmi:idref="ne1" />
+		<receiveBy xmi:type="NamedElement" xmi:idref="ne2" />
+		<calls xmi:type="Method" xmi:idref="met2" />
+	</Message>
+	
+	<Message xmi:id="m3">
+		<sendBy xmi:type="NamedElement" xmi:idref="ne1" />
+		<receiveBy xmi:type="NamedElement" xmi:idref="ne2" />
+		<calls xmi:type="Method" xmi:idref="met3" />
+	</Message>
+	
+	<Method nom="spos" xmi:id="met1" />
+	<Method nom="pos" xmi:id="met2" />
+	<Method nom="halt" xmi:id="met3" />
+	
+	<NamedElement identifiant="1" nom="emetteur" sender="m2 m3" receiver="m1" xmi:id="ne1" />
+	<NamedElement identifiant="2" nom="environnement" sender="m1" receiver="m2 m3" xmi:id="ne2" />
+	
+</xmi:XMI>
