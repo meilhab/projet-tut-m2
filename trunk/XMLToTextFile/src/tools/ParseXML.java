@@ -14,22 +14,24 @@ import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
 
 public class ParseXML {
-	private String path;
+	private String filePath;
 	private Document document;
 	private Element root;
-	private String fileName;
+	private String fileResult;
 	private FileWriter writer;
 
-	public ParseXML(String path, String fileName) {
-		this.path = path;
-		this.fileName = fileName;
+	public ParseXML(String filePath, String fileResult) {
+		this.filePath = filePath;
+		this.fileResult = fileResult;
 	}
 
 	public void parseXMLFile() {
 		SAXBuilder sxb = new SAXBuilder();
 		try {
-			document = sxb.build(new File(path));
+			initializeFile();
+			document = sxb.build(new File(filePath));
 			root = document.getRootElement();
+			
 			//insideParse();
 			insideWritingParse();
 
@@ -50,11 +52,12 @@ public class ParseXML {
 
 			i++;
 
-			// List<Attribute> att = module.getAttributes();
-			// Iterator<Attribute> itAtt = att.iterator();
-			// while(itAtt.hasNext()){
-			// System.out.println(itAtt.next().getName());
-			// }
+			List<Attribute> att = module.getAttributes();
+			Iterator<Attribute> itAtt = att.iterator();
+			while (itAtt.hasNext()) {
+				System.out.println(itAtt.next().getName());
+			}
+			
 			Namespace ns = Namespace
 					.getNamespace("http://www.w3.org/2001/XMLSchema-instance");
 			System.out.println("type : " + module.getAttributeValue("type", ns)
@@ -100,10 +103,10 @@ public class ParseXML {
 				Element transition = itTransition.next();
 				
 				int s, d;
-				if(transition.getAttributeValue("source").equals("environnement")){
+				if(transition.getAttributeValue("source").equals("Environnement")){
 					s = 1;
 					d = 0;
-				} else if (transition.getAttributeValue("destination").equals("environnement")){
+				} else if (transition.getAttributeValue("destination").equals("Environnement")){
 					s = 0;
 					d = 1;
 				} else {
@@ -135,7 +138,7 @@ public class ParseXML {
 		try {
 			System.out.println(text);
 			text += "\n";
-			writer = new FileWriter(fileName, true);
+			writer = new FileWriter(fileResult, true);
 			writer.write(text, 0, text.length());
 			writer.close();
 		} catch (IOException e) {
@@ -144,7 +147,7 @@ public class ParseXML {
 	}
 
 	private void initializeFile() {
-		File fichier = new File(fileName);
+		File fichier = new File(fileResult);
 		if (fichier.exists()) {
 			fichier.delete();
 		}
