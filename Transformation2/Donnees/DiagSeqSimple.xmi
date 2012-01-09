@@ -3,41 +3,27 @@
 
 	<SequenceDiagram>
 		<contain xmi:type="Sequences" xmi:idref="sequenceComputingUnit" />
-		<contain xmi:type="Sequences" xmi:idref="sequenceSensor" />
 	</SequenceDiagram>
 	
-	<Sequences nom="ComputingUnit" xmi:id="sequenceComputingUnit">
+	<Sequences nom="ComputingUnit sequence" xmi:id="sequenceComputingUnit">
 		<isComposed xmi:type="NamedElement" xmi:idref="Cu"/>
 		<isComposed xmi:type="NamedElement" xmi:idref="E"/>
 		<isComposedBy xmi:type="Message" xmi:idref="mPosECu" />
 		<isComposedBy xmi:type="Message" xmi:idref="mFarCuE" />
 		<isComposedBy xmi:type="Message" xmi:idref="mHaltCuE" />
-		<isDefinedBy xmi:type="Loop" xmi:idref="loopCuE" />
+		<!--<isDefinedBy xmi:type="Loop" xmi:idref="loopCuE" />-->
 	</Sequences>
-	
-	<Sequences nom="Sensor" xmi:id="sequenceSensor">
-		<isComposed xmi:type="NamedElement" xmi:idref="S" />
-		<isComposed xmi:type="NamedElement" xmi:idref="E" />
-		<isComposedBy xmi:type="Message" xmi:idref="mSposES" />
-		<isComposedBy xmi:type="Message" xmi:idref="mPosSE" />
-		<isDefinedBy xmi:type="Loop" xmi:idref="loopSE" />
-	</Sequences>
-	
+	<!--
 	<Loop xmi:id="loopCuE">
 		<contains xmi:type="Message" xmi:idref="mPosECu" />
 		<isContaining xmi:type="Alt" xmi:idref="altCuE" />
-	</Loop>
-	
-	<Loop xmi:id="loopSE">
-		<contains xmi:type="Message" xmi:idref="mSposES" />
-		<contains xmi:type="Message" xmi:idref="mPosSE" />
 	</Loop>
 	
 	<Alt xmi:id="altCuE">
 		<contains xmi:type="Message" xmi:idref="mFarCuE" />
 		<contains xmi:type="Message" xmi:idref="mHaltCuE" />
 	</Alt>
-	
+	-->
 	<Message xmi:id="mPosECu">
 		<sendBy xmi:type="NamedElement" xmi:idref="E"/>
 		<receiveBy xmi:type="NamedElement" xmi:idref="Cu"/>
@@ -56,25 +42,12 @@
 		<calls xmi:type="Method" xmi:idref="metHalt" />
 	</Message>
 	
-	<Message xmi:id="mSposES">
-		<sendBy xmi:type="NamedElement" xmi:idref="S" />
-		<receiveBy xmi:type="NamedElement" xmi:idref="E" />
-		<calls xmi:type="Method" xmi:idref="metSpos" />
-	</Message>
-	
-	<Message xmi:id="mPosSE">
-		<sendBy xmi:type="NamedElement" xmi:idref="S"/>
-		<receiveBy xmi:type="NamedElement" xmi:idref="E"/>
-		<calls xmi:type="Method" xmi:idref="metPos"/>
-	</Message>
-	
 	<Method nom="pos" xmi:id="metPos" />
 	<Method nom="far" xmi:id="metFar" />
 	<Method nom="halt" xmi:id="metHalt" />
 	<Method nom="spos" xmi:id="metSpos" />
 	
 	<NamedElement identifiant="1" nom="Computing Unit" sender="mFarCuE mHaltCuE" receiver="mPosECu" xmi:id="Cu" />
-	<NamedElement identifiant="2" nom="Environnement" sender="mSposES mPosECu" receiver="mPosSE mFarCuE mHaltCuE" xmi:id="E" />
-	<NamedElement identifiant="1" nom="Sensor" sender="mPosSE" receiver="mSposES" xmi:id="S" />
+	<NamedElement identifiant="2" nom="Environnement" sender="mPosECu" receiver="mFarCuE mHaltCuE" xmi:id="E" />
 	
 </xmi:XMI>
