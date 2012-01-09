@@ -96,6 +96,7 @@ public class ParseXML {
 			insertFile("\tvar s : [0.."
 					+ (Integer.parseInt(module.getAttributeValue("nbEtat")) - 1)
 					+ "]", ".si");
+			
 			// insertFile("\tinitial : s = " +
 			// module.getAttributeValue("localetat"));
 			insertFile("", ".si");
