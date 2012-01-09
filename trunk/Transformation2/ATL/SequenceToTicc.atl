@@ -1,5 +1,5 @@
--- @path SequenceMetaModel=/Transformation2/MetamodelSeq/SequenceMetamodel.ecore
--- @path TiccMetaModel=/Transformations/MetamodelTicc/TiccModel.ecore
+-- @path SequenceMetaModel=/Transformation/MetamodelSeq/SequenceMetamodel.ecore
+-- @path TiccMetaModel=/Transformation/MetamodelTicc/TiccModel.ecore
 
 module SequenceToTicc;
 create OUT : TiccMetaModel from IN : SequenceMetaModel;
@@ -10,31 +10,29 @@ helper context SequenceMetaModel!Sequences def : isSequenceRoot() : Boolean =
 rule SequenceToModule{
 	from s : SequenceMetaModel!Sequences
 	to t : TiccMetaModel!Module (
-		--nom <- s.nom,
-		--TODO: faire 2 sequences et test si root bien détecté
-		--TODO: controle premier message pour point d'entrée initial automate
-		nom <- s.isSequenceRoot().toString(),
+		--TODO: controle premier message pour point d'entree initial automate : etatInitial
+		nom <- s.nom,
 		transition <- s.isComposedBy,
-		nbEtat <- SequenceMetaModel!NamedElement.allInstances()->asSet()->size(),
-		etatInitial <- 0
+		nbEtat <- s.isComposed.size(),
+		etatInitial <- s.isComposedBy->debug()->first().sendBy.identifiant.debug()
 	)
 }
 
 rule MessageToLocalInput{
-	from s : SequenceMetaModel!Message(s.receiveFrom.nom = 'environnement')
+	from s : SequenceMetaModel!Message(s.sendBy.nom = 'Environnement')
 	to t : TiccMetaModel!LocalInput(
 		nom <- s.calls.nom,
-		source <- s.receiveFrom.nom,
-		destination <- s.sendTo.nom
+		source <- s.sendBy.nom,
+		destination <- s.receiveBy.nom
 	)
 }
 
 rule MessageToOutput{
-	from s : SequenceMetaModel!Message(s.sendTo.nom = 'environnement')
+	from s : SequenceMetaModel!Message(s.receiveBy.nom = 'Environnement')
 	to t : TiccMetaModel!Output(
 		nom <- s.calls.nom,
-		source <- s.receiveFrom.nom,
-		destination <- s.sendTo.nom
+		source <- s.sendBy.nom,
+		destination <- s.receiveBy.nom
 	)
 }
 
