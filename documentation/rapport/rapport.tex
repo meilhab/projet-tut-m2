@@ -1,0 +1,244 @@
+\documentclass[12pt,a4paper,latin1]{report}
+\usepackage [french, english]{babel}
+
+% Pour pouvoir utiliser 
+%\usepackage{ucs}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage {lmodern}
+%\usepackage {picins} %image avec texte a côté
+\usepackage{url} % Pour avoir de belles url
+\usepackage {geometry}
+%\usepackage{slashbox} %backslash dans tableau
+%\usepackage[table]{xcolor} %couleur tableau
+\usepackage{colortbl,hhline}
+\usepackage{color}
+\usepackage {listings} % Pour mettre du code source
+\usepackage{lscape} %Pour pouvoir passer en paysage
+%\usepackage {multicol} %Pour pouvoir faire plusieurs colonnes
+%\usepackage{eurosym} %symbole euro
+\usepackage{graphicx}
+\usepackage{makeidx} %Pour créer un index
+%\usepackage {setspace} %Pour l'interligne de 1.5
+%\usepackage{shorttoc} %Pour créer un sommaire
+\usepackage{caption}
+\usepackage[font=scriptsize, format=hang]{subcaption}
+%\usepackage{subfig}
+
+
+\setlength{\topmargin}{-6mm}
+\setlength{\textheight}{230mm}
+\setlength{\textwidth}{160mm}
+\setlength{\evensidemargin}{-5.45mm}
+\setlength{\oddsidemargin}{-5.45mm}
+ 
+\renewcommand{\no}{n\textsuperscript{o}}
+\renewcommand{\nos}{n\textsuperscript{os}}
+
+\renewcommand{\labelitemi}{---}
+\renewcommand{\labelitemii}{$\star$}
+
+
+\usepackage[pdftex, 					% Paramétrage de la navigation
+bookmarks = true, 						% Signets
+bookmarksnumbered = true, 				% Signets numérotés
+pdfpagemode = UseOutlines, 					% None, UseThumbs, UseOutlines, Fullscreen
+pdfstartview = Fit, 					% FitH, FitV, FitR, FitB, FitBH, FitBV, Fit
+pdfpagelayout = SinglePage, 				% SinglePage, OneColumn, TwoColumnLeft, TwoColumnRight
+colorlinks = false, 					% Liens en couleur
+urlcolor = black, 						% Couleur des liens externes
+pdfborder = {0 0 0} 					% Style de bordure : ici, rien
+]{hyperref}
+
+
+\hypersetup{
+    unicode=false,          % non-Latin characters in Acrobat's bookmarks
+    pdftoolbar=true,        % show Acrobat's toolbar?
+    pdfmenubar=true,        % show Acrobat's menu?
+    pdffitwindow=true,     % window fit to page when opened
+    pdftitle={Rapport de projet tuteuré},    % title
+    pdfauthor={Pinto Dos Santos Almeida Catherine, Meilhac Benoit},     % author
+    pdfsubject={\'Etude et développement avec la plate-forme Android},   % subject of the document
+    pdfcreator={Pinto Dos Santos Almeida Catherine, Meilhac Benoit},   % creator of the document
+    pdfproducer={Texlive (pdflatex}, % producer of the document
+    pdfnewwindow=true,      % links in new window
+}
+
+
+\graphicspath{{images/}}
+\newcommand{\sommaire}{\shorttoc{Sommaire}{0}}
+\makeindex
+\definecolor{gris}{gray}{0.75}
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{vert}{rgb}{0,0.75,0}
+
+
+% Pour les marges de la page
+%\geometry{a4paper, top=2.5cm, bottom=3.5cm, left=1.5cm, right=1.5cm, marginparwidth=1.2cm}
+\geometry{a4paper}
+
+% Pour les entetes de page
+\usepackage{fancyhdr}
+
+
+\parskip=5pt %% distance entre les (paragraphe)
+\sloppy %% respecter toujours la marge de droite 
+
+% Pour les pénalités :
+\interfootnotelinepenalty=150 %note de bas de page
+\widowpenalty=150 %% veuves et orphelines
+\clubpenalty=150 
+
+%Pour la longueur de l'indentation des paragraphes
+\setlength{\parindent}{15mm}
+
+%%%% debut macro pour enlever le nom chapitre %%%%
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \ifnum \c@secnumdepth >\m@ne
+        \Huge\bfseries \thechapter\quad
+    \fi
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+%%%% fin macro %%%%
+
+%redéfinition maketitle pour mettre en haut de page
+\makeatletter
+\renewcommand{\maketitle}{%
+    \vspace*{0.5cm}% ICI La taille que tu veux avant le titre
+    
+    \begin{center}%
+    {\large
+     \lineskip .75em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 2em%
+    
+    {\large \@date \par}%       % Set date in \large size.
+    
+      \vskip 1.5em%
+    {\textbf{\LARGE \@title} \par}%
+    \end{center}\par
+    \vskip 1.5em%
+	\thispagestyle{empty}% virer numérotation
+	\setcounter{page}{0}% remettre compteur au début
+	\clearpage
+	\newpage
+}
+\makeatother
+
+%Couverture 
+
+\title{
+	\normalsize{Département informatique\\
+	Université de Franche-Comté\\
+	Projet tuteuré\\
+	Année 2011-2012}\\
+	\vspace{15mm}
+}
+
+\author{Catherine PINTO DOS SANTOS ALMEIDA\\Benoît MEILHAC  %rajouter un \\ au besoin
+	\vspace{5mm}
+}
+
+\date{
+	\begin{center} 
+	%	\includegraphics[width=7cm]{ufc.jpg}
+        \includegraphics[scale=0.15]{ufc.jpg}
+	\end{center}
+	\vspace{5mm}
+	\huge{\textbf{Transformation d'un diagramme de séquences SysML vers les automates d'interfaces et vérification de compatibilité avec l'outil Ticc}}\\
+	\vspace{14mm}
+	\normalsize{	
+	Tuteurs :\\
+        Mr MOUNTASSIR\\
+        Mr HAMMAD\\
+        Mr CHOUALI
+	}
+}
+
+
+\begin{document}
+\pagestyle{empty}
+\maketitle
+
+%\pagenumbering{Roman} 
+\setcounter{page}{1} 
+
+%\input{Abstract}
+
+%\input{Acknowledgment}
+
+\tableofcontents
+\clearpage
+\newpage
+
+%\sommaire
+%\addcontentsline{toc}{chapter}{Sommaire}
+%\clearpage
+
+%\pagenumbering{arabic} 
+%\setcounter{page}{1} 
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} 
+\renewcommand{\sectionmark}[1]{\markright{#1}} 
+
+%\input{Introduction}
+
+%\input{Sujet}
+
+%\input{Achievement}
+
+%\input{Conclusion}
+
+\clearpage
+\newpage
+
+%\input{Glossaire}
+
+%%----------------------------------------
+%% Pour la bibliographie
+%%----------------------------------------
+%% Citer tous les ouvrages/références
+%nocite{*}
+%% Trier par ordre d'apparition
+%bibliographystyle{unsrt}
+%% Pour le style de la biblio
+%bibliographystyle{plain}
+%% Ecrire la biblio ici
+%bibliography{Bibliographie}
+%addcontentsline{toc}{chapter}{Bibliography}
+
+\clearpage
+\newpage
+
+\printindex
+
+\appendix
+
+\listoftables
+\addcontentsline{toc}{chapter}{Liste des tableaux}
+\clearpage
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Table des figures}
+\clearpage
+
+
+\end{document}
