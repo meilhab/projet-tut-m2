@@ -1,0 +1,14 @@
+\chapter{Introduction}
+SysML\protect\footnote{System Modeling Language} est une extension du langage UML\protect\footnote{Unified Modeling Language} spécialisé dans la modélisation, la spécification et la documentation de systèmes. 
+Les améliorations qu'il apporte par rapport à UML lui ont permis d'accroître sa popularité tant dans l'industrie que dans le milieu universitaire.
+SysML introduit de nouveaux concepts comme la disparition des classes UML au profit de blocs qui sont l'unité de base de la structure d'un système (logiciel ou matériel). Ainsi le diagramme de classes UML est remplacé par le diagramme de définition de blocs (BDD\protect\footnote{Block Definition Diagram}). Celui-ci met en avant la hiérarchie du système et les différentes interactions entre les composants.
+Ces interactions peuvent être représentées sous forme d'un diagramme de séquences modélisant les échanges de messages dans le temps.
+Cependant, la modélisation ne permet pas à elle seule de vérifier et valider la compatibilité des composants entre eux.
+
+Dans un modèle basé sur les composants, la vérification de compatibilité entre composants est introduite par la notion d'automates d'interfaces. Ils servent à décrire les différentes interactions d'entrées/sorties donc le comportement d'un composant avec son environnement.
+
+C'est dans ce contexte que se situe le projet. Partant d'un diagramme de définition de blocs, tous les blocs ayant des interactions avec d'autres donnent accès à des diagrammes de séquences associés. Ces diagrammes sont ensuite transformés en automates d'interfaces. Une vérification de leur compatibilité est alors possible.
+
+Dans un premier temps, une première partie sera consacrée à fixer le cadre du projet ainsi que les différents outils qui ont été utilisés. Ensuite, une deuxième partie exposera la mise en \oe{}uvre du projet. Et en dernier lieu, les différents problèmes qui ont été rencontrés.
+
+\clearpage
