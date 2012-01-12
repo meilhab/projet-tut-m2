@@ -1,12 +1,12 @@
-\documentclass[12pt,a4paper,latin1]{report}
-\usepackage [french, english]{babel}
+\documentclass[12pt,a4paper,latin1, french]{report}
+\usepackage {babel}
 
 % Pour pouvoir utiliser 
 %\usepackage{ucs}
 \usepackage[T1]{fontenc}
 \usepackage[latin1]{inputenc}
 \usepackage {lmodern}
-%\usepackage {picins} %image avec texte a côté
+%\usepackage {picins} %image avec texte a ct
 \usepackage{url} % Pour avoir de belles url
 \usepackage {geometry}
 %\usepackage{slashbox} %backslash dans tableau
@@ -18,9 +18,9 @@
 %\usepackage {multicol} %Pour pouvoir faire plusieurs colonnes
 %\usepackage{eurosym} %symbole euro
 \usepackage{graphicx}
-\usepackage{makeidx} %Pour créer un index
+\usepackage{makeidx} %Pour crer un index
 %\usepackage {setspace} %Pour l'interligne de 1.5
-%\usepackage{shorttoc} %Pour créer un sommaire
+%\usepackage{shorttoc} %Pour crer un sommaire
 \usepackage{caption}
 \usepackage[font=scriptsize, format=hang]{subcaption}
 %\usepackage{subfig}
@@ -39,9 +39,9 @@
 \renewcommand{\labelitemii}{$\star$}
 
 
-\usepackage[pdftex, 					% Paramétrage de la navigation
+\usepackage[pdftex, 					% Paramtrage de la navigation
 bookmarks = true, 						% Signets
-bookmarksnumbered = true, 				% Signets numérotés
+bookmarksnumbered = true, 				% Signets numrots
 pdfpagemode = UseOutlines, 					% None, UseThumbs, UseOutlines, Fullscreen
 pdfstartview = Fit, 					% FitH, FitV, FitR, FitB, FitBH, FitBV, Fit
 pdfpagelayout = SinglePage, 				% SinglePage, OneColumn, TwoColumnLeft, TwoColumnRight
@@ -56,9 +56,9 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
     pdftoolbar=true,        % show Acrobat's toolbar?
     pdfmenubar=true,        % show Acrobat's menu?
     pdffitwindow=true,     % window fit to page when opened
-    pdftitle={Rapport de projet tuteuré},    % title
-    pdfauthor={Pinto Dos Santos Almeida Catherine, Meilhac Benoit},     % author
-    pdfsubject={\'Etude et développement avec la plate-forme Android},   % subject of the document
+    pdftitle={Rapport de projet tuteur},    % title
+    pdfauthor={Pinto Dos Santos Almeida Catherine, Meilhac Benoît},     % author
+    pdfsubject={Transformation d'un diagramme de séquences SysML vers les automates d'interfaces et vérification de compatibilité avec l'outil Ticc},   % subject of the document
     pdfcreator={Pinto Dos Santos Almeida Catherine, Meilhac Benoit},   % creator of the document
     pdfproducer={Texlive (pdflatex}, % producer of the document
     pdfnewwindow=true,      % links in new window
@@ -84,7 +84,7 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 \parskip=5pt %% distance entre les (paragraphe)
 \sloppy %% respecter toujours la marge de droite 
 
-% Pour les pénalités :
+% Pour les pnalits :
 \interfootnotelinepenalty=150 %note de bas de page
 \widowpenalty=150 %% veuves et orphelines
 \clubpenalty=150 
@@ -116,7 +116,7 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 \makeatother
 %%%% fin macro %%%%
 
-%redéfinition maketitle pour mettre en haut de page
+%redfinition maketitle pour mettre en haut de page
 \makeatletter
 \renewcommand{\maketitle}{%
     \vspace*{0.5cm}% ICI La taille que tu veux avant le titre
@@ -135,8 +135,8 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
     {\textbf{\LARGE \@title} \par}%
     \end{center}\par
     \vskip 1.5em%
-	\thispagestyle{empty}% virer numérotation
-	\setcounter{page}{0}% remettre compteur au début
+	\thispagestyle{empty}% virer numrotation
+	\setcounter{page}{0}% remettre compteur au dbut
 	\clearpage
 	\newpage
 }
@@ -215,7 +215,7 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 %%----------------------------------------
 %% Pour la bibliographie
 %%----------------------------------------
-%% Citer tous les ouvrages/références
+%% Citer tous les ouvrages/rfrences
 %nocite{*}
 %% Trier par ordre d'apparition
 %bibliographystyle{unsrt}
