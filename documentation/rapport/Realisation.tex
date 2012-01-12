@@ -1,11 +1,29 @@
 \chapter{Réalisation}
-processus de validation de deux composants
-buts <--
+
+Le but principal du projet est, partant d'un diagramme de définition de blocs, de récupérer deux blocs interagissant ensembles et de pouvoir valider le fait qu'ils soient compatibles l'un avec l'autre.
+
+Les automates d'interfaces des composants permettent de tester si deux composants sont compatibles. L'outil Ticc sera utilisé pour permettre de tester la compatibilité entre deux automates d'interfaces. 
+Le diagramme de séquences d'un bloc SysML est connu, il faut donc obtenir d'après ce diagramme de séquences, un fichier pouvant être lu par Ticc.
+ATL entre en jeu à ce moment, il permet d'effectuer des transformations de modèles : ici le passage d'un diagramme de séquences à un fichier correspondant à la syntaxe de Ticc.
+
+\noindent En récapitulant, pour tester la compatibilité de deux blocs il faut :
+\begin{itemize}
+    \item générer un méta modèle du diagramme de séquences;
+    \item générer un méta modèle correspondant à la syntaxe de Ticc;
+    \item écrire les règles ATL permettant le passage d'un diagramme de séquences à un fichier Ticc;
+    \item appliquer les règles ATL sur un fichier contenant les diagrammes de séquences de deux blocs (appelés par la suite composants), ce fichier doit être conforme au méta modèle du diagramme de séquences;
+    \item parser le fichier obtenu après application des règles pour obtenir un fichier compatible Ticc contenant les deux composants;
+    \item générer un fichier d'exécution Ticc;
+    \item lancer le fichier d'exécution dans Ticc et conclure sur la compatibilité des composants.
+
+\end{itemize}
+
 \section{Méta modèles SysML}
 \subsection{Méta modèle du diagramme de séquences}
 \subsection{Méta modèle du diagramme de Ticc}
 \section{Utilisation d'ATL}
 \section{Parseurs XML vers Ticc}
 \section{Compatibilité des automates d'interfaces avec Ticc}
+\label{compatibiliteAutomate}
 
 \clearpage
