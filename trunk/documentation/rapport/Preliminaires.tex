@@ -2,16 +2,16 @@
 %\usepackage{color}
 %\usepackage[usenames,dvipsnames]{xcolor}
 %\geometry{hmargin=2.5cm,vmargin=2.5cm}
-\definecolor{Lightgray}{gray}{0.75}
+\definecolor{gris}{gray}{0.5}
 \lstset{
 	numbers=left,
 	numberstyle=\footnotesize,
-	numberstyle=\color{Sepia},
+%	numberstyle=Sepia,
 	stepnumber=1,
 	numbersep=5pt,
 	frame=shadowbox,
-	backgroundcolor=\color{Lightgray},
-	rulesepcolor=\color{Gray}
+	backgroundcolor=\color{grisclair},
+	rulesepcolor=\color{gris}
 }
 
 \newpage
@@ -42,7 +42,8 @@ UML4SysML :
 \item diagramme de cas d'utilisations;
 \item diagramme d'activit{\'e}s;
 \item diagramme de paquetage;
-\item diagrammes de classe et structure composite (utilis{\'e}s pour les diagrammes de d{\'e}finitions de blocs et de bloc interne - BDD \& IDB).\\
+\item diagrammes de classe et structure composite (utilis{\'e}s pour les diagrammes de d{\'e}finitions de blocs et de bloc interne - BDD \& IDB).
+
 \end{itemize}
 
 Extensions SysML  :
@@ -51,7 +52,8 @@ Extensions SysML  :
 \item modifications dans le diagramme d'activit{\'e}s;
 \item diagramme d'exigences (requirements) - Nouveau;
 \item diagramme param{\'e}trique - Nouveau;
-\item allocations (tra\c{c}abilit{\'e}) â€“ Nouveau.
+\item allocations (tra\c{c}abilit{\'e}) - Nouveau.
+
 \end{itemize}
 
 \subsection{Structure de SysML}
@@ -64,14 +66,17 @@ Extensions SysML  :
 	\item Le \enquote{Internal Block Diagram} (IBD) remplace le diagramme de structure composite;
 	\item Le diagramme de paquetage reste inchang{\'e};
 	\item Le diagramme param{\'e}trique est une extension SysML pour l'analyse de param{\`e}tres critiques du syst{\`e}me.
+
 	\end{itemize}
 \item Dynamiques
 	\begin{itemize}
 	\renewcommand{\labelitemii}{$\bullet$}
 	\item Le diagramme d'activit{\'e}s est l{\'e}g{\`e}rement modifi{\'e} pour SysML;
 	\item Les diagrammes de s{\'e}quence, d'{\'e}tats, et de cas d'utilisations restent inchang{\'e}s.
+
 	\end{itemize}
 \item Le diagramme d'exigences est une extension SysML.
+
 \end{itemize}
 
 La structure de SysML peut {\^e}tre d{\'e}compos{\'e}e via le diagramme suivant.
@@ -95,7 +100,7 @@ La structure de SysML peut {\^e}tre d{\'e}compos{\'e}e via le diagramme suivant.
 	Le diagramme BDD (Block Definition Diagram) repr{\'e}sente une vue d{\^i}te bo{\^i}te noire d'un bloc. Il pr{\'e}sente les blocs et les relations entre eux. Par rapport {\`a} UML, le diagramme BDD red{\'e}fini le diagramme de classes en rempla\c{c}ant les classes par des blocs. Le diagramme BDD ci-dessous provient de l'exemple OMG d'un purificateur d'eau.
 
 \begin{figure}
-\centering \includegraphics[scale=0.4]{./images/image6.png}
+\centering \includegraphics[scale=0.4]{image6.png}
 \caption{Exemple de diagramme BDD d'un purificateur d'eau}
 \label{Exemple de diagramme BDD d'un purificateur d'eau}
 
@@ -112,7 +117,7 @@ Ils ont aussi des ports d'entr{\'e}e/sortie qui permettent de simuler des {\'e}l
 Le diagramme IBD permet d'obtenir le fonctionnement interne du composant et les interactions des composants qui le composent avec les ports d'entr{\'e}e/sortie.
 
 \begin{figure}
-\centering \includegraphics[scale=0.4]{./images/image8.png}
+\centering \includegraphics[scale=0.4]{image8.png}
 \caption{Exemple de diagramme IBD du bloc Distiller}
 \label{Exemple de diagramme IBD du bloc Distiller}
 
@@ -129,6 +134,7 @@ Le langage SysML a {\'e}t{\'e} int{\'e}gr{\'e} dans de nombreux outils AGL, comm
 \item IBM Rational Software Modeler (plugin d'une soci{\'e}{\'e} tierce disponible);
 \item Magicdraw (plugin SysML requis);
 \item Open source: Topcased (environnement Eclipse).
+
 \end{itemize}
 
 \section{Les automates d'interface}
@@ -142,6 +148,7 @@ L'ensemble des actions est décomposé en trois ensembles :
 \item les actions d'entrée qui sont les réceptions de messages et représentent les services offerts (identifiable par le caractère \enquote{?})
 \item les actions de sortie qui sont l'envoi de messages et représentent les services requis (identifiable par le caractère \enquote{!})
 \item et les actions internes qui sont des opérations locales (identifiable par le caractère \enquote{;}).\\
+
 \end{itemize}
 
 Le modèle des automates d'interface servira à la vérification de la compatibilité entre composants, sachant qu'un composant est muni de contrats spécifiques et de dépendances avec son environnement.
@@ -159,6 +166,7 @@ Ticc (Tool for Interface Compatibility and Composition) est un outil qui permet 
 	\item Chaque composant peut spécifier son comportement, ainsi que le comportement attendu des autres composants.
 	\item Les fonctionnalités du modèle intègrent des états partagés (via la visibilités des variables : partagé ou privé), une communication et  une synchronisation uni ou bi-directionnelle (via la synchronisation des actions).
 	\item Avantage : il est concis.
+
 	\end{itemize} 
 \item La composition et la vérification de la compatibilité : 
 	\begin{itemize}
@@ -166,6 +174,7 @@ Ticc (Tool for Interface Compatibility and Composition) est un outil qui permet 
 	\item Lorsque les composants sont assemblés, Ticc vérifie qu'ils interagissent correctement.
 	\item Ticc est capable de propager les contraintes d'entrée des composants lors de la composition.
 	\item Avantage : la constance du modèle est assurée.
+
 	\end{itemize} 
 \item La simulation et la vérification :
 	\begin{itemize}
@@ -173,8 +182,9 @@ Ticc (Tool for Interface Compatibility and Composition) est un outil qui permet 
 	\item Ticc peut vérifier les propriétés CTL (Computational Tree Logic) des modèles, ainsi que les simuler. 
 	\item Ticc s'appuie sur les méthodes symboliques pour une analyse efficace des espaces d'états.
 	\item Avantage : la justesse des modèles et le respect des spécifications peut être vérifiés. 
+
 	\end{itemize}  
-\item 
+
 \end{itemize} 
 
 \paragraph{}Cet outils a été créé par Luca de Alfaro, Bo Adler, Marco Faella, Axel Legay, Vishwanath Raman, et Pritam Roy. Il est à noter que Leandro Dias Da Silva a participé au développement de cet outil dans le passé. 
@@ -187,6 +197,7 @@ Afin de pouvoir faire des opération sur des modèles, Ticc doit prendre en entrée
 \begin{itemize}
 \item un « .si » : qui contient le modèle (connut également sous « sociable interface »)
 \item un « .in » : qui contient  le code OCaml qui permet de charger le modèle et y faire des opérations
+
 \end{itemize} 
 
 \subsubsection{Exemple}
@@ -195,10 +206,10 @@ Afin de pouvoir faire des opération sur des modèles, Ticc doit prendre en entrée
 \item Le modèle
 \lstinputlisting{./doc/fire-detector.si}
 Ce modèle illustre un détecteur de fumée et sa centrale d'alarme. La centrale d'alarme collecte les alarmes des détecteurs de fumées, et envoie un message aux pompiers (ControlUnit) s'il y a une alarme déclenchée.\\
-
 \item Le code OCaml
 \lstinputlisting{./doc/fire-detector.in}
 Ce script  Ocaml montre le chargement du modèle depuis le fichier « fire-detector.si », l'instanciation des modules, et leur composition.
+
 \end{itemize}
 
 \subsection{Les modèles ou \enquote{sociable interfaces}}
@@ -219,7 +230,7 @@ On peut remarquer que dans l'exemple ci-dessous, que les deux automates d'interf
 
 
 \begin{figure}
-\centering \includegraphics[scale=0.5]{./images/detecteurFumee.png}
+\centering \includegraphics[scale=0.5]{detecteurFumee.png}
 \caption{Detecteur de Fumee}
 \label{Detecteur de Fumee}
 
@@ -230,13 +241,13 @@ On peut remarquer que dans l'exemple ci-dessous, que les deux automates d'interf
 
 
 \section{TopCased}
-Topcased (Toolkit in Open Source for Critical Applications & Systems Development) est un logiciel d'ingénierie assistée par ordinateur. Il contient un IDE basé sur le framework de la plate forme de développement Eclipse, à laquelle il ajoute des fonctionnalités essentiellement liées à la mise en ?uvre de la première branche du cycle en V pour l'ingénierie du logiciel, du matériel ou de systèmes mixtes logiciel/matériel.\\
+Topcased (Toolkit in Open Source for Critical Applications \& Systems Development) est un logiciel d'ingénierie assistée par ordinateur. Il contient un IDE basé sur le framework de la plate forme de développement Eclipse, à laquelle il ajoute des fonctionnalités essentiellement liées à la mise en ?uvre de la première branche du cycle en V pour l'ingénierie du logiciel, du matériel ou de systèmes mixtes logiciel/matériel.\\
 Sont implémentés (ou en cours d'implémentation) des moyens d'analyse d'exigences, modélisation, simulation de modèles, implémentation, test, validation, rétro-ingénierie, génération de code, de modèles et de documentation et gestion de projet.\\
 S'appuyant principalement sur des langages standardisés pour la modélisation du logiciel (UML, SysML, AADL...), Topcased travaille avec des fichiers XMI. Tous ses standards sont implémentés dans leurs dernières versions stables, soit directement par le projet Topcased, soit par les modules de la dernière version stable de la plate-forme Eclipse.\\
 Il est disponible sur le site : http://www.topcased.org/ et sa dernière version est la 5.0.0.
 
 \begin{figure}
-\centering \includegraphics[scale=0.5]{./images/viewer.png}
+\centering \includegraphics[scale=0.5]{viewer.png}
 \caption{Exemple de diagrammes SysML}
 \label{Exemple de diagrammes SysML}
 
