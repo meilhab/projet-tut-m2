@@ -19,9 +19,31 @@ ATL entre en jeu à ce moment, il permet d'effectuer des transformations de modèl
 \end{itemize}
 
 \section{Utilisation du langage ATL}
+
+L'utilisation d'ATL, pour la récupération et le traitement d'un fichier Ticc contenant deux composants, requiert :
+\begin{itemize}
+    \item deux méta modèles en entrée : un de base (celui du diagramme de séquences) et un d'arrivé (celui du langage Ticc);
+    \item un fichier conforme au méta modèle de base;
+    \item les règles ATL permettant de passer du méta modèle de base au méta modèle voulu.
+
+\end{itemize}
+
 \subsection{Méta modèles SysML}
 \subsubsection{Méta modèle du diagramme de séquences}
-\subsubsection{Méta modèle du diagramme de Ticc}
+
+Le méta modèle de séquence existant n'a pas été pris dans son ensemble, seules les parties importantes ont été extraites.
+Par principe, les messages échangés se font entre un composant et son environnement.
+Les ensembles de messages pris en compte sont :
+\begin{itemize}
+    \item \textbf{alt} : messages multiples alternatifs (si alors sinon);
+    \item \textbf{loop} : messages s'exécutant plusieurs fois (boucle);
+    \item \textbf{seq} : messages n'ayant pas d'ordres particuliers.
+
+\end{itemize}
+
+Un message est composé d'un émetteur et d'un récepteur. Il possède aussi une méthode
+
+\subsubsection{Méta modèle du langage de Ticc}
 \subsection{Les règles ATL}
 \section{Parseurs XML vers Ticc}
 \section{Compatibilité des automates d'interfaces avec Ticc}
