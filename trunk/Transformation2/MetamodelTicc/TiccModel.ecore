@@ -7,24 +7,12 @@
         eType="#//TiccElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TiccElement" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GlobalVariable" eSuperTypes="#//TiccElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LocalVariable">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbEtat" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LocalEtat">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="etatInitial" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//Transition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Local" eSuperTypes="#//Transition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Transition"/>
   <eClassifiers xsi:type="ecore:EClass" name="GlobalInput" eSuperTypes="#//Input"/>
   <eClassifiers xsi:type="ecore:EClass" name="LocalInput" eSuperTypes="#//Input"/>
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//TiccElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-        eType="#//LocalVariable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="localetat" eType="#//LocalEtat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
         eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
