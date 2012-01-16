@@ -30,22 +30,92 @@ L'utilisation d'ATL, pour la récupération et le traitement d'un fichier Ticc con
 
 \subsection{Méta modèles SysML}
 \subsubsection{Méta modèle du diagramme de séquences}
+\label{subsubMMDiagSeq}
 
 Le méta modèle de séquence existant n'a pas été pris dans son ensemble, seules les parties importantes ont été extraites.
 Par principe, les messages échangés se font entre un composant et son environnement.
-Les ensembles de messages pris en compte sont :
+
+\noindent Les ensembles de messages pris en compte sont :
 \begin{itemize}
     \item \textbf{alt} : messages multiples alternatifs (si alors sinon);
     \item \textbf{loop} : messages s'exécutant plusieurs fois (boucle);
-    \item \textbf{seq} : messages n'ayant pas d'ordres particuliers.
+    \item \textbf{seq} : messages n'ayant pas d'ordre particulier.
+
+\end{itemize}
+Ces ensembles peuvent contenir eux-mêmes d'autres ensembles contenant des messages. Un message est composé d'un émetteur et d'un récepteur. Il possède aussi une méthode associée qui possède un nom.
+
+Une séquence type pour le diagramme de séquences, dont il est question d'utiliser dans le cadre du projet, sera composée de différents composants \textit{NamedElement}, de messages \textit{Message} et éventuellement d'ensembles de messages \textit{TypeMessage}.
+La figure~\ref{figureMMDiagSeq} représente le méta modèle réfléchit dans le cadre du projet.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.62]{MMDiagSeq.jpg}
+	\caption{Méta modèle du diagramme de séquences utile pour le projet}
+	\label{figureMMDiagSeq}
+
+\end{figure}
+
+\subsubsection{Méta modèle du langage de Ticc}
+
+Concernant Ticc, le méta modèle a été créé en se basant sur la syntaxe du logiciel et après analyse des fichiers exemples. En effet, Ticc permet de traiter des automates dît sociaux, pouvant communiquer entre eux. Or cette notion n'est pas utile dans le cadre du projet, elle a donc, de ce fait, été écartée du méta modèle.
+
+Le code ci-dessous représente comme vu dans la partie~\ref{utilisationTicc} un module.
+\lstinputlisting{./doc/moduleExemple.si}
+
+Un module porte un nom et est donc composé d'un tableau représentant les différents états de l'automate. Il peut aussi avoir un état initial.
+Il contient ensuite les différentes transitions possibles de l'automate :
+\begin{itemize}
+	\item \textbf{Input} une transition d'entrée de l'automate qui peut être décomposée en deux types :
+	\begin{itemize}
+		\item[$\bullet$] \textbf{GlobalInput} principalement utilisée pour les automates sociaux, elle peut représenter aussi des entrées ne faisant pas changer l'état de l'automate;
+		\item[$\bullet$] \textbf{LocalInput} cette transition représente une entrée dans l'automate entrainant ou non un changement d'état interne.
+	
+	\end{itemize}
+	\item \textbf{Output} une transition de sortie de l'automate;
+	\item \textbf{Local} une transition interne de l'automate.
+				
+\end{itemize}
+
+Dans le cas d'un changement d'état, l'état suivant est noté d'un \' (voir l'exemple ci-dessus avec \textbf{s'}).
+
+\noindent La figure~\ref{figureMMTicc} représente le méta modèle réfléchit dans le cadre du projet.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.62]{MMTicc.jpg}
+	\caption{Méta modèle de la syntaxe de Ticc utile pour le projet}
+	\label{figureMMTicc}
+
+\end{figure}
+
+\subsection{Fichier type exemple}
+\subsection{Les règles ATL}
+
+Après génération des deux méta modèles intervient l'écriture des règles ATL permettant le passage d'un diagramme de séquences à un automate d'interface.
+
+Un algorithme permettant le passage d'un diagramme de séquences en un automate d'interface était fourni en début de projet. Cependant l'application d'un algorithme itératif récursif en règles ATL n'est pas possible du fait de la conception d'ATL utilisant EMF\protect\footnote{Eclipse Modeling Framework : framework de modélisation d'eclipse} qui utilise des modèles de données structurées.
+
+Pour l'exécution d'ATL, ce qu'il faut savoir c'est qu'il prend en entrée un fichier de type \textit{XMI}\protect\footnote{XML Metadata Interchange : format standard de représentation de modèles UML basé sur XML} et génère en sortie un fichier du même type. Un exemple de fichier d'entrée XMI peut être trouvé en annexe.
+%TODO: METTRE LA REFERENCE A L'ANNEXE !!!
+
+Comme annoncé en début de~\ref{subsubMMDiagSeq}, les échanges d'un composant se font entre lui et un composant abstrait appelé \textit{Environnement}. Il représente tous les autres composants émettant ou réceptionnant des messages du composant étudié dans la séquence.
+
+\noindent Les règles sont les suivantes : 
+\begin{itemize}
+	\item Le diagramme de séquences devient un modèle Ticc;
+	\item Les séquences du diagramme de séquences deviennent des modules;
+	\item Les messages en fonction de l'émetteur et du récepteur deviennent des transitions d'entrée ou de sortie : un message provenant du composant \textit{Environnement} correspond à une transition d'entrée.
 
 \end{itemize}
 
-Un message est composé d'un émetteur et d'un récepteur. Il possède aussi une méthode
+% ANNEXE !!!!
+Le fichier d'entrée exemple, le fichier des règles ATL et le fichier de sortie sont disponibles en annexes.
 
-\subsubsection{Méta modèle du langage de Ticc}
-\subsection{Les règles ATL}
-\section{Parseurs XML vers Ticc}
+\section{Parseur XML vers Ticc}
+
+Afin de pouvoir utiliser Ticc pour vérifier la compatibilité des composants, il est nécessaire de convertir le fichier XMI obtenu en sortie en un fichier .si compatible avec Ticc. Pour ce faire, un parseur XML a été implémenté. 
+Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement correcte, un fichier .si associé est généré ainsi qu'un fichier d'exécution .in. 
+
 \section{Compatibilité des automates d'interfaces avec Ticc}
 \label{compatibiliteAutomate}
 
