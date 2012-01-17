@@ -81,7 +81,8 @@ Extensions SysML  :
 
 La structure de SysML peut {\^e}tre d{\'e}compos{\'e}e via le diagramme suivant.
 
-%%%%%%%%%%% n'arrive pas a afficher les .gif ...
+%%%%%%%%%%% n'arrive pas a afficher les .gif ... 
+%%%%%%%%%%%TODO ouvrir avec gimp et enregistrer en png
 
 %\begin{figure}
 %\centering \includegraphics{./images/image5.gif}
@@ -112,7 +113,7 @@ La structure de SysML peut {\^e}tre d{\'e}compos{\'e}e via le diagramme suivant.
 \subsubsection{}Les blocs peuvent {\^e}tre en relation les uns avec les autres.\\
 Ils ont aussi des ports d'entr{\'e}e/sortie qui permettent de simuler des {\'e}l{\'e}ments requis et fournis entre les blocs. Ainsi, le bloc \enquote{Distiller} a besoin d'eau froide en entr{\'e}e et de chaleur externe pour produire en sortie de l'eau purifi{\'e}e, du r{\'e}sidu, et de l'eau pour le bypass.
 
-\subsubsection{IBD} Le diagramme IBD (Internal Block Diagram) repr{\'e}sente la vue bo{\^i}te blanche d'un bloc, c'est-{\`a}-dire de d{\'e}crire la vue interne d'un bloc. Il pr{\'e}sente les blocs composants le bloc principal et la fa\c{c}on dont ils sont assembl{\'e}s ensemble via les ports.  Par rapport {\`a} UML, le diagramme IBD red{\'e}fini le diagramme de structure composite. Le diagramme IBD ci-dessous provient de l'exemple OMG du purificateur d'eau, et correspond au diagramme de d{\'e}finition de bloc BDD pr{\'e}c{\'e}dent.
+\subsubsection{Diagramme IBD} Le diagramme IBD (Internal Block Diagram) repr{\'e}sente la vue bo{\^i}te blanche d'un bloc, c'est-{\`a}-dire de d{\'e}crire la vue interne d'un bloc. Il pr{\'e}sente les blocs composants le bloc principal et la fa\c{c}on dont ils sont assembl{\'e}s ensemble via les ports.  Par rapport {\`a} UML, le diagramme IBD red{\'e}fini le diagramme de structure composite. Le diagramme IBD ci-dessous provient de l'exemple OMG du purificateur d'eau, et correspond au diagramme de d{\'e}finition de bloc BDD pr{\'e}c{\'e}dent.
 
 Le diagramme IBD permet d'obtenir le fonctionnement interne du composant et les interactions des composants qui le composent avec les ports d'entr{\'e}e/sortie.
 
@@ -156,7 +157,7 @@ Le modèle des automates d'interface servira à la vérification de la compatibilit
 
 \section{Ticc : Tool for Interface Compatibility and Composition}
 \subsection{Qu'est ce que Ticc ?}
-Ticc (Tool for Interface Compatibility and Composition) est un outil qui permet de définir des interfaces (appelées modules) et de les composer. Il est écrit en OCaml et est disponible gratuitement sur la page suivante : http://dvlab.cse.ucsc.edu/Ticc/Download.
+Ticc (Tool for Interface Compatibility and Composition) est un outil qui permet de définir des interfaces (appelées modules) et de les composer. Il est écrit en OCaml et est disponible gratuitement sur la page suivante : \url{http://dvlab.cse.ucsc.edu/Ticc/Download}.
 
 \paragraph{}Ticc fournit les fonctions suivantes : 
 \begin{itemize}
@@ -242,10 +243,15 @@ On peut remarquer que dans l'exemple ci-dessous, que les deux automates d'interf
 
 
 \section{TopCased}
-Topcased (Toolkit in Open Source for Critical Applications \& Systems Development) est un logiciel d'ingénierie assistée par ordinateur. Il contient un IDE basé sur le framework de la plate forme de développement Eclipse, à laquelle il ajoute des fonctionnalités essentiellement liées à la mise en ?uvre de la première branche du cycle en V pour l'ingénierie du logiciel, du matériel ou de systèmes mixtes logiciel/matériel.\\
+%%%%%%%%%%TODO mettre une référence sur le chapitre des transformations de modèle
+Pour mettre en oeuvre une transformation de modèle, l'utilisation de l'IDE\protect\footnote{Integrated Development Environment} Topcased\protect\footnote{Toolkit in Open Source for Critical Applications \& Systems Development} est  adéquate. Une transformation implique deux métamodèles de base. Pour transformer un modèle en un autre il faut définir des règles. Le langage ATL\protect\footnote{ATLAS Transformation Language} a naturellement été choisi. Il permet de définir les règles qui associent les éléments d'un modèle source afin qu'ils correspondent à un modèle cible.\\
+
+En ce qui concerne Topcased, on le trouve soit sous forme de plugin d'eclipse, soit en tant que RCP\protect\footnote{Rich Client Platform}. Il contient donc un IDE basé sur le framework de la plate forme de développement Eclipse, à laquelle il ajoute des fonctionnalités essentiellement liées à la mise en oeuvre de la première branche du cycle en V pour l'ingénierie du logiciel, du matériel ou de systèmes mixtes logiciel/matériel.\\
+
 Sont implémentés (ou en cours d'implémentation) des moyens d'analyse d'exigences, modélisation, simulation de modèles, implémentation, test, validation, rétro-ingénierie, génération de code, de modèles et de documentation et gestion de projet.\\
+
 S'appuyant principalement sur des langages standardisés pour la modélisation du logiciel (UML, SysML, AADL...), Topcased travaille avec des fichiers XMI. Tous ses standards sont implémentés dans leurs dernières versions stables, soit directement par le projet Topcased, soit par les modules de la dernière version stable de la plate-forme Eclipse.\\
-Il est disponible sur le site : http://www.topcased.org/ et sa dernière version est la 5.0.0.
+Il est disponible sur le site : \url{http://www.topcased.org} et sa dernière version est la 5.0.0.\\
 
 \begin{figure}
 \centering \includegraphics[scale=0.5]{viewer.png}
