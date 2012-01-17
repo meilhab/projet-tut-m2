@@ -1,9 +1,29 @@
-\chapter{Compatibilité des composants}
+\chapter{Vérification de compatibilité entre composants}
 
 \section{Automate d'interfaces}
 
-Un automate d'interfaces permet de modéliser le comportement logiciel et matériel d'un composant.
-Un automate d'interfaces $ A = \{S_A, I_A, \Sigma_A^I, \Sigma_A^O, \Sigma_A^H, \mathcal{T}_A\} $ est défini par :
+La notion d'automate d'interfaces a été introduite par Alfaro et Henzinger dans le but de modéliser les interfaces des composants et de décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.
+
+Chaque composant est décrit par un seul automate d'interfaces. 
+L'ensemble des actions est décomposé en trois ensembles : 
+\begin{itemize}
+	\item les actions d'entrée représentant les services offerts (identifiable par le caractère \enquote{?}) correspondant aux réceptions de messages;
+	\item les actions de sortie représentant les services requis (identifiable par le caractère \enquote{!}) correspondant aux envois de messages;
+	\item et les actions internes représentant des opérations locales (identifiable par le caractère \enquote{;}).
+
+\end{itemize}
+
+\noindent La figure~\ref{exempleAutomateInterface}  donne un exemple de représentation d'automates d'interfaces.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=1]{exempleAutomateInterface.jpg}
+	\caption{Représentation d'automates d'interfaces}
+	\label{exempleAutomateInterface}
+
+\end{figure}
+
+\noindent Un automate d'interfaces $ A = \{S_A, I_A, \Sigma_A^I, \Sigma_A^O, \Sigma_A^H, \mathcal{T}_A\} $ est défini par :
 \begin{itemize}
     \item un ensemble fini d'états $S_A$;
     \item un sous-ensemble fini d'états initiaux $I_A$ tel que $I_A \subseteq S_A$;
@@ -14,6 +34,56 @@ Un automate d'interfaces $ A = \{S_A, I_A, \Sigma_A^I, \Sigma_A^O, \Sigma_A^H, \
 
 \end{itemize}
 
+\section{Compatibilité entre composants}
 
+Vérifier la compatibilité entre deux composants revient à vérifier la compatibilité entre leur deux automates d'interfaces respectif.
+
+Pour ce faire, il faut commencer par vérifier que les deux automates sont composables, c'est à dire que leurs ensembles d'actions d'entrée, de sortie et internes sont disjoints.
+
+Deux automates d'interfaces P et Q sont composables si :
+\begin{center}
+	\begin{tabular}{l c}
+		$\Sigma_P^H  \cap \Sigma_Q = \emptyset$ &
+		$\Sigma_Q^H  \cap \Sigma_P = \emptyset$ \\
+		$\Sigma_P^I  \cap \Sigma_Q^I = \emptyset$ &
+		$\Sigma_P^O  \cap \Sigma_Q^O = \emptyset$ \\
+			
+	\end{tabular}				
+
+\end{center}
+
+L'étape suivante consiste à faire le produit synchronisé des deux automates et vérifier qu'il ne possède pas d'états dît illégaux : ce sont des états à partir desquels une action de sortie partagée d'un automate ne peut pas être synchronisée avec la même action activée en entrée dans l'autre composant.
+
+Le produit synchronisé de deux automate d'interfaces P et Q  noté $A_P \otimes A_Q$ est défini par :
+\begin{itemize}
+	\item[$\bullet$] $S_{P \otimes Q} = S_P \times S_Q et I_{P \otimes Q} = I_P \times I_Q$;
+	\item[$\bullet$] $\Sigma_{P \otimes Q}^I = (\Sigma_P^I \cup \Sigma_Q^I) \setminus Shared(P,Q)$;
+	\item[$\bullet$] $\Sigma_{P \otimes Q}^O = (\Sigma_P^O \cup \Sigma_Q^O) \setminus Shared(P,Q)$
+	\item[$\bullet$] $\Sigma_{P \otimes Q}^H = (\Sigma_P^H \cup \Sigma_Q^H) \setminus Shared(P,Q)$
+	\item[$\bullet$] $((s_1,s_2),a,(s_1^{'},s_2^{'})) \in \mathcal{T}_{P \otimes Q}$ si
+	\begin{itemize}
+		\item $a \notin Shared(P,Q) \wedge (s_1,a,s_1^{'}) \in \mathcal{T}_P \wedge s_2 = s_2^{'}$;
+		\item $a \notin Shared(P,Q) \wedge (s_2,a,s_2^{'}) \in \mathcal{T}_Q \wedge s_1 = s_1^{'}$;
+		\item $a \in Shared(P,Q) \wedge (s_1,a,s_1^{'}) \in \mathcal{T}_P \wedge (s_2,a,s_2^{'}) \in \mathcal{T}_Q$.
+	
+	\end{itemize}
+
+\end{itemize}
+
+Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
+\begin{center} 
+	{\footnotesize	$Illegal(P,Q) = \left\{(v,u) \in S_P \times S_Q \mid 
+		\exists a \in Shared(P,Q).
+		\left(\begin{array}{l l l}
+			a \in \Sigma_P^O(v) & \wedge & a \notin \Sigma_Q^I(u) \\
+			& \vee &\\
+			a \in \Sigma_Q^O(u) & \wedge & a \notin \Sigma_P^I(v)
+		\end{array}\right)\right\}$}.\\
+
+		Avec $Shared(P,Q) = \Sigma_P \cap \Sigma_Q$.
+
+\end{center}
+
+Deux automates d'interfaces sont incompatibles s'il existe un état illégal atteignable depuis les états initiaux dans le produit synchronisé de deux comportements.
 
 \clearpage
