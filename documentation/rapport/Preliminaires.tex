@@ -138,45 +138,28 @@ Le langage SysML a {\'e}t{\'e} int{\'e}gr{\'e} dans de nombreux outils AGL, comm
 
 \end{itemize}
 
-\section{Les automates d'interface}
-
-Ce sont Alfaro et Henzinger qui ont introduit la notion d'automates d'interface. Ils servent à modéliser les interfaces des composants et à décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.
-
-Chaque composant est décrit par un seul automate d'interface.\\
-
-L'ensemble des actions est décomposé en trois ensembles : 
-\begin{itemize}
-\item les actions d'entrée qui sont les réceptions de messages et représentent les services offerts (identifiable par le caractère \enquote{?})
-\item les actions de sortie qui sont l'envoi de messages et représentent les services requis (identifiable par le caractère \enquote{!})
-\item et les actions internes qui sont des opérations locales (identifiable par le caractère \enquote{;}).\\
-
-\end{itemize}
-
-Le modèle des automates d'interface servira à la vérification de la compatibilité entre composants, sachant qu'un composant est muni de contrats spécifiques et de dépendances avec son environnement.
-
-
 \section{Ticc : Tool for Interface Compatibility and Composition}
 \subsection{Qu'est ce que Ticc ?}
 Ticc (Tool for Interface Compatibility and Composition) est un outil qui permet de définir des interfaces (appelées modules) et de les composer. Il est écrit en OCaml et est disponible gratuitement sur la page suivante : \url{http://dvlab.cse.ucsc.edu/Ticc/Download}.
 
-\paragraph{}Ticc fournit les fonctions suivantes : 
+\paragraph{}Ticc fournit les fonctions suivantes : \\
 \begin{itemize}
 \item La modélisation des composantes de conception et leurs interactions : 
 	\begin{itemize}
 	\renewcommand{\labelitemii}{$\bullet$}
 	\item Chaque composant peut spécifier son comportement, ainsi que le comportement attendu des autres composants.
 	\item Les fonctionnalités du modèle intègrent des états partagés (via la visibilités des variables : partagé ou privé), une communication et  une synchronisation uni ou bi-directionnelle (via la synchronisation des actions).
-	\item Avantage : il est concis.
+	\item Avantage : il est concis.\\
 
-	\end{itemize} 
+	\end{itemize}
 \item La composition et la vérification de la compatibilité : 
 	\begin{itemize}
 	\renewcommand{\labelitemii}{$\bullet$}
 	\item Lorsque les composants sont assemblés, Ticc vérifie qu'ils interagissent correctement.
 	\item Ticc est capable de propager les contraintes d'entrée des composants lors de la composition.
-	\item Avantage : la constance du modèle est assurée.
+	\item Avantage : la constance du modèle est assurée.\\
 
-	\end{itemize} 
+	\end{itemize}
 \item La simulation et la vérification :
 	\begin{itemize}
 	\renewcommand{\labelitemii}{$\bullet$}
@@ -213,18 +196,6 @@ Ce modèle illustre un détecteur de fumée et sa centrale d'alarme. La centrale d'
 Ce script  Ocaml montre le chargement du modèle depuis le fichier « fire-detector.si », l'instanciation des modules, et leur composition.
 
 \end{itemize}
-
-\subsection{Les modèles ou \enquote{sociable interfaces}}
-\subsubsection{Spécification de modèles}
-Un modèle spécifie comment un composant interagit avec son environnement. C'est-à-dire qu'il décrit les hypothèses que le composant a en entrée sur son environnement, et garantit les hypothèses de sortie que le composant fournit.\\
-Les modèles modélisent le comportement des entrées/sorties d'un composant par un automate.
-
-\subsubsection{Compatibilité entre modèles}
-Deux modèles sont compatibles s'il existe un environnement pour les assembler et s'assurer que les hypothèses des deux sont respectées.
-
-\subsubsection{Composabilité entre modèles}
-La composabilité est une condition impliquant les ensembles de variables et les actions d'un module, qui peuvent être vérifiés statiquement et efficacement. Essentiellement, deux
-modules sont composables si il est logique d'envisager l'effet de leur communication.
 
 \subsubsection{Exemple}
 Lors de la composition de deux interfaces P et Q, on doit s'assurer que les contraintes de sorties de P respectent les contraintes d'entrées de Q, et vice versa.\\
