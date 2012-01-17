@@ -1,0 +1,27 @@
+\chapter{Les automates d'interface}
+
+Ce sont Alfaro et Henzinger qui ont introduit la notion d'automates d'interface. Ils servent à modéliser les interfaces des composants et à décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.\\
+
+\section{Les modèles ou \enquote{sociable interfaces}}
+Chaque composant est décrit par un seul automate d'interface. 
+L'ensemble des actions est décomposé en trois ensembles : 
+\begin{itemize}
+\item les actions d'entrée qui sont les réceptions de messages et représentent les services offerts (identifiable par le caractère \enquote{?})
+\item les actions de sortie qui sont l'envoi de messages et représentent les services requis (identifiable par le caractère \enquote{!})
+\item et les actions internes qui sont des opérations locales (identifiable par le caractère \enquote{;}).\\
+
+\end{itemize}
+
+Le modèle des automates d'interface servira à la vérification de la compatibilité entre composants, sachant qu'un composant est muni de contrats spécifiques et de dépendances avec son environnement.
+
+\section{Spécification de modèles}
+Un modèle spécifie comment un composant interagit avec son environnement. C'est-à-dire qu'il décrit les hypothèses que le composant a en entrée sur son environnement, et garantit les hypothèses de sortie que le composant fournit.\\
+Les modèles modélisent le comportement des entrées/sorties d'un composant par un automate.
+
+\section{Composabilité entre modèles}
+La composabilité est une condition impliquant les ensembles de variables et les actions d'un module, qui peuvent être vérifiés statiquement et efficacement. Essentiellement, deux
+modules sont composables si il est logique d'envisager l'effet de leur communication.
+
+\section{Compatibilité entre modèles}
+Deux modèles sont compatibles s'il existe un environnement pour les assembler et s'assurer que les hypothèses des deux sont respectées.
+
