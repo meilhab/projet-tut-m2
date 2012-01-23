@@ -2,7 +2,7 @@
 
 \section{Automate d'interfaces}
 
-La notion d'automate d'interfaces a été introduite par Alfaro et Henzinger dans le but de modéliser les interfaces des composants et de décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.
+La notion d'automate d'interfaces a été introduite par Alfaro et Henzinger~\cite{automataInterface} dans le but de modéliser les interfaces des composants et de décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie~\cite{automateIO} où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.
 
 Chaque composant est décrit par un seul automate d'interfaces. 
 L'ensemble des actions est décomposé en trois ensembles : 
@@ -13,7 +13,7 @@ L'ensemble des actions est décomposé en trois ensembles :
 
 \end{itemize}
 
-\noindent La figure~\ref{exempleAutomateInterface}  donne un exemple de représentation d'automates d'interfaces.
+\noindent La figure~\ref{exempleAutomateInterface} donne un exemple de représentation d'automates d'interfaces.
 
 \begin{figure}[!ht]
 	\centering
@@ -98,6 +98,6 @@ Deux automates d'interfaces sont incompatibles s'il existe un état illégal attei
 
 \subsection{Compatibilité des automates d'interfaces avec Ticc}
 
-Pour vérifier la compatibilité des automates d'interfaces via l'outil Ticc, il faut lancer le fichier .in. Ce fichier réalise la composition des interfaces deux à deux et affiche le résultat.
+Pour vérifier la compatibilité des automates d'interfaces via l'outil Ticc~\cite{ticcDocumentation, siteTicc}, il faut lancer le fichier .in. Ce fichier réalise la composition des interfaces deux à deux et affiche le résultat.
 
 \clearpage
