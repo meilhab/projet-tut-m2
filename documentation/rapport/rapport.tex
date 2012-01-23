@@ -24,6 +24,7 @@
 \usepackage{caption}
 \usepackage[font=scriptsize, format=hang]{subcaption}
 \usepackage[babel=true]{csquotes}
+\usepackage[toc,page]{appendix}
 %\usepackage{subfig}
 
 
@@ -229,7 +230,6 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 %%%%% Ecrire la biblio ici
 \bibliography{Bibliographie}
 \addcontentsline{toc}{chapter}{Bibliographie}
-
 \clearpage
 \newpage
 
@@ -237,13 +237,11 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 
 \appendix
 
-\listoftables
-\addcontentsline{toc}{chapter}{Liste des tableaux}
-\clearpage
-
 \listoffigures
 \addcontentsline{toc}{chapter}{Table des figures}
 \clearpage
 
+\input{Annexes}
+\addcontentsline{toc}{chapter}{Annexes}
 
 \end{document}

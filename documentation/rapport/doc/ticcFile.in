@@ -1,0 +1,13 @@
+open Ticc;;
+
+parse "ticcFile.si";;
+
+let composant1 = mk_sym "Sensor";;
+let composant2 = mk_sym "ComputingUnit";;
+
+print_symmod composant1;;
+print_symmod composant2;;
+
+let composant3 = compose composant1 composant2;;
+
+print_symmod composant3;;
