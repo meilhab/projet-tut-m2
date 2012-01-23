@@ -13,4 +13,4 @@ bibtex: rapport.tex
 	evince rapport.pdf
 
 clean:
-	rm *.aux *.idx *.log *.lot *.out *.toc *.lof
+	rm *.aux *.idx *.log *.lot *.out *.toc *.lof *.bbl *.blg
