@@ -1,4 +1,5 @@
-\chapter{Réalisation}
+\newpage
+\chapter{Construction d'automates d'interfaces}
 
 Le but principal du projet est, partant d'un diagramme de définition de blocs, de récupérer deux blocs interagissant ensembles et de pouvoir valider le fait qu'ils soient compatibles l'un avec l'autre.
 
@@ -18,7 +19,11 @@ ATL entre en jeu à ce moment, il permet d'effectuer des transformations de modèl
 
 \end{itemize}
 
-\section{Utilisation du langage ATL}
+\input{TransformationModeles}
+
+\section{Réalisation}
+
+\subsection{Utilisation du langage ATL}
 
 L'utilisation d'ATL, pour la récupération et le traitement d'un fichier Ticc contenant deux composants, requiert :
 \begin{itemize}
@@ -28,7 +33,6 @@ L'utilisation d'ATL, pour la récupération et le traitement d'un fichier Ticc con
 
 \end{itemize}
 
-\subsection{Méta modèles SysML}
 \subsubsection{Méta modèle du diagramme de séquences}
 \label{subsubMMDiagSeq}
 
@@ -88,8 +92,10 @@ Dans le cas d'un changement d'état, l'état suivant est noté d'un \' (voir l'exem
 
 \end{figure}
 
-\subsection{Fichier type exemple}
-\subsection{Les règles ATL}
+\subsubsection{Fichier type exemple}
+%TODO a completer
+
+\subsubsection{Les règles ATL}
 
 Après génération des deux méta modèles intervient l'écriture des règles ATL permettant le passage d'un diagramme de séquences à un automate d'interface.
 
@@ -111,7 +117,7 @@ Comme annoncé en début de~\ref{subsubMMDiagSeq}, les échanges d'un composant se 
 % ANNEXE !!!!
 Le fichier d'entrée exemple, le fichier des règles ATL et le fichier de sortie sont disponibles en annexes.
 
-\section{Parseur XML vers Ticc}
+\subsection{Parseur XML vers Ticc}
 
 Afin de pouvoir utiliser Ticc pour vérifier la compatibilité des composants, il est nécessaire de convertir le fichier XMI obtenu en sortie en un fichier .si compatible avec Ticc. Pour ce faire, un parseur XML a été implémenté. 
 Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement correcte, un fichier .si associé est généré ainsi qu'un fichier d'exécution .in. 
