@@ -1,0 +1,42 @@
+-- @path SequenceMetaModel=/Transformation/MetamodelSeq/
+--    SequenceMetamodel.ecore
+-- @path TiccMetaModel=/Transformation/MetamodelTicc/TiccModel.ecore
+
+module SequenceToTicc;
+create OUT : TiccMetaModel from IN : SequenceMetaModel;
+
+rule SequenceToModule{
+  from s : SequenceMetaModel!Sequences
+  to t : TiccMetaModel!Module (
+    nom <- s.nom,
+    transition <- s.isComposedBy,
+    nbEtat <- s.isComposed.size(),
+    etatInitial <- s.isComposedBy->first().sendBy.identifiant
+  )
+}
+
+rule MessageToLocalInput{
+  from s : SequenceMetaModel!Message(s.sendBy.nom='Environnement')
+  to t : TiccMetaModel!LocalInput(
+    nom <- s.calls.nom,
+    source <- s.sendBy.nom,
+    destination <- s.receiveBy.nom
+  )
+}
+
+rule MessageToOutput{
+  from s : SequenceMetaModel!Message(s.receiveBy.nom='Environnement')
+  to t : TiccMetaModel!Output(
+    nom <- s.calls.nom,
+    source <- s.sendBy.nom,
+    destination <- s.receiveBy.nom
+  )
+}
+
+rule SequenceDiagramToTicc{
+  from s : SequenceMetaModel!SequenceDiagram
+  to t : TiccMetaModel!Ticc(
+    possede <- s.contain	
+  )
+}
+

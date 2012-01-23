@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Ticc xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns="ticcmodel">
+  <possede xsi:type="Module" nom="Sensor" nbEtat="2" 
+      etatInitial="1">
+    <transition xsi:type="Output" nom="pos" source="Sensor" 
+        destination="Environnement"/>
+    <transition xsi:type="LocalInput" nom="spos" source="Environnement" 
+        destination="Sensor"/>
+  </possede>
+  <possede xsi:type="Module" nom="ComputingUnit" nbEtat="2" 
+      etatInitial="1">
+    <transition xsi:type="Output" nom="halt" source="Computing Unit" 
+        destination="Environnement"/>
+    <transition xsi:type="Output" nom="far" source="Computing Unit" 
+        destination="Environnement"/>
+    <transition xsi:type="LocalInput" nom="pos" source="Environnement" 
+        destination="Computing Unit"/>
+  </possede>
+</Ticc>

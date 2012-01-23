@@ -1,0 +1,34 @@
+module Sensor : 
+  var s : [0..1]
+  initial : s = 1
+
+  output pos : {
+    s = 0 ==> s' = 1
+  }
+
+  input spos : {
+    local: 
+      s = 1 ==> s' := 0
+  }
+
+endmodule
+
+module ComputingUnit : 
+  var s : [0..1]
+  initial : s = 1
+
+  output halt : {
+    s = 0 ==> s' = 1
+  }
+
+  output far : {
+    s = 0 ==> s' = 1
+  }
+
+  input pos : {
+    local: 
+      s = 1 ==> s' := 0
+  }
+
+endmodule
+
