@@ -38,7 +38,7 @@ L'ensemble des actions est décomposé en trois ensembles :
 
 Vérifier la compatibilité entre deux composants revient à vérifier la compatibilité entre leur deux automates d'interfaces respectif. Cependant, la vérification de cette compatibilité nécessite différentes étapes intermédiaires.
 
-\subsubsection{Composabilité de composants}
+\subsection{Composabilité de composants}
 
 Il faut commencer par vérifier que les deux automates sont composables, c'est à dire que leurs ensembles d'actions d'entrée, de sortie et internes sont disjoints.
 
@@ -54,7 +54,7 @@ Deux automates d'interfaces P et Q sont composables si :
 
 \end{center}
 
-\subsubsection{Produit synchronisé de composants}
+\subsection{Produit synchronisé de composants}
 
 L'étape suivante consiste à faire le produit synchronisé des deux automates et vérifier qu'il ne possède pas d'états dît illégaux : ce sont des états à partir desquels une action de sortie partagée d'un automate ne peut pas être synchronisée avec la même action activée en entrée dans l'autre composant.
 
@@ -75,7 +75,7 @@ Le produit synchronisé de deux automate d'interfaces P et Q  noté $A_P \otimes A
 \end{itemize}
 Avec $Shared(P,Q) = \Sigma_P \cap \Sigma_Q$.
 
-\subsubsection{Notion d'états illégaux}
+\subsection{Notion d'états illégaux}
 
 Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
 \begin{center} 
@@ -91,12 +91,13 @@ Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
 
 \end{center}
 
-\subsubsection{Compatibilité entre deux composants}
+\subsection{Compatibilité entre deux composants}
 
 Deux automates d'interfaces sont incompatibles s'il existe un état illégal atteignable depuis les états initiaux dans le produit synchronisé de deux composants.
 
 
-\section{Compatibilité des automates d'interfaces avec Ticc}
-TODO
+\subsection{Compatibilité des automates d'interfaces avec Ticc}
+
+Pour vérifier la compatibilité des automates d'interfaces via l'outil Ticc, il faut lancer le fichier .in. Ce fichier réalise la composition des interfaces deux à deux et affiche le résultat.
 
 \clearpage
