@@ -23,13 +23,13 @@ Les spécifications issues de l'IS produisant souvent une documentation très dens
 La mod{\'e}lisation permet de ma{\^i}triser la complexit{\'e} du syst{\`e}me {\'e}tudi{\'e}, car chaque mod{\`e}le donne acc{\`e}s {\`a} une repr{\'e}sentation abstraite de diff{\'e}rents aspects du syst{\`e}me.
 
 \subsection{Pourquoi SysML ?}
-La mod{\'e}lisation avec le langage UML est une pratique bien {\'e}tablie dans l'industrie logicielle. Bien que le langage UML permette par son caract{\`e}re {\`a} usage g{\'e}n{\'e}ral d'adresser de nombreux besoins pour l'IS, il ne r{\'e}pond pas {\`a} tous les besoins.\\
+La mod{\'e}lisation avec le langage UML~\cite{siteUML} est une pratique bien {\'e}tablie dans l'industrie logicielle. Bien que le langage UML permette par son caract{\`e}re {\`a} usage g{\'e}n{\'e}ral d'adresser de nombreux besoins pour l'IS, il ne r{\'e}pond pas {\`a} tous les besoins.\\
 SysML apporte une simplification et une standardisation du vocabulaire, plus question ici de classes, d'objets, ou d'h{\'e}ritage. Ce nouveau langage, ajoute aussi la possibilit{\'e} de repr{\'e}senter les exigences du syst{\`e}me comme elles sont d{\'e}finies dans un cahier des charges, les {\'e}l{\'e}ments non-logiciels (m{\'e}canique, hydraulique, capteur \dots), les {\'e}quations physiques, les flux continus (mati{\`e}re, {\'e}nergie, etc.) et les allocations.
 
 \subsection{SysML}
-Systems Modeling Language (SysML) est bas{\'e} sur UML et remplace la mod{\'e}lisation de classes et d'objets par la mod{\'e}lisation de blocs pour un vocabulaire plus adapt{\'e} {\`a} l'Ing{\'e}nierie Syst{\`e}me. Un bloc englobe tout concept logiciel, mat{\'e}riel, donn{\'e}es, processus, et m{\^e}me la gestion des personnes.\\
+Systems Modeling Language (SysML~\cite{siteSysML}) est bas{\'e} sur UML et remplace la mod{\'e}lisation de classes et d'objets par la mod{\'e}lisation de blocs pour un vocabulaire plus adapt{\'e} {\`a} l'Ing{\'e}nierie Syst{\`e}me. Un bloc englobe tout concept logiciel, mat{\'e}riel, donn{\'e}es, processus, et m{\^e}me la gestion des personnes.\\
 
-Le projet SysML a {\'e}t{\'e} men{\'e} conjointement entre l'INCOSE (International Council on Systems Engineering) et l'OMG (Object Management Group), organisme responsable d'UML, et a {\'e}t{\'e} valid{\'e} en 2006. Depuis il fut repris jusque arriver {\`a} une Final Adopted Specification telle que le d{\'e}fini l'OMG.\\
+Le projet SysML a {\'e}t{\'e} men{\'e} conjointement entre l'INCOSE~\cite{siteINCOSE} (International Council on Systems Engineering) et l'OMG (Object Management Group), organisme responsable d'UML, et a {\'e}t{\'e} valid{\'e} en 2006. Depuis il fut repris jusque arriver {\`a} une Final Adopted Specification telle que le d{\'e}fini l'OMG~\cite{siteOMG}.\\
 
 La version actuelle (1.2) date de juin 2010.
 
@@ -48,7 +48,7 @@ SysML r{\'e}utilise certaines fonctionnalit{\'e}s d'UML mais en les simplifiant 
 %piccaption{tototitit}
 %\parpic[r]{\includegraphics[]{}}
 
-UML4SysML :
+\noindent UML4SysML :
 \begin{itemize}
 \item diagramme de s{\'e}quences;
 \item diagramme d'{\'e}tats;
@@ -59,7 +59,7 @@ UML4SysML :
 
 \end{itemize}
 
-Extensions SysML  :
+\noindent Extensions SysML  :
 \begin{itemize}
 \item d{\'e}finitions pour les diagrammes de d{\'e}finitions de blocs et de bloc interne - BDD \& IDB;
 \item modifications dans le diagramme d'activit{\'e}s;
@@ -156,7 +156,7 @@ Le langage SysML a {\'e}t{\'e} int{\'e}gr{\'e} dans de nombreux outils AGL\prote
 
 \section{TopCased}
 %%%%%%%%%%TODO mettre une référence sur le chapitre des transformations de modèle
-l'IDE\protect\footnote{Integrated Development Environment} Topcased\protect\footnote{Toolkit in Open Source for Critical Applications \& Systems Development} propose des outils intéressants et facilement exploitables pour à l'ingénierie système. Sont implémentés (ou en cours d'implémentation) des moyens d'analyse d'exigences, modélisation, simulation de modèles, implémentation, test, validation, rétro-ingénierie, génération de code, de modèles et de documentation, et gestion de projet.\\
+l'IDE\protect\footnote{Integrated Development Environment} Topcased\protect\footnote{Toolkit in Open Source for Critical Applications \& Systems Development}~\cite{siteTopcased} propose des outils intéressants et facilement exploitables pour à l'ingénierie système. Sont implémentés (ou en cours d'implémentation) des moyens d'analyse d'exigences, modélisation, simulation de modèles, implémentation, test, validation, rétro-ingénierie, génération de code, de modèles et de documentation, et gestion de projet.\\
 
 On le trouve soit sous forme de plugin d'eclipse, soit en tant que RCP\protect\footnote{Rich Client Platform}. Il contient donc un IDE basé sur le framework de la plate forme de développement Eclipse, à laquelle il ajoute des fonctionnalités essentiellement liées à la mise en oeuvre de la première branche du cycle en V pour l'ingénierie du logiciel, du matériel ou de systèmes mixtes logiciel/matériel.\\
 
@@ -174,8 +174,8 @@ Il est disponible sur le site : \url{http://www.topcased.org} et sa dernière ver
 %\parpic[r]{\includegraphics[]{}}
 
 \section{Ticc}
-\subsection{Qu'est ce que Ticc\protect\footnote{Tool for Interface Compatibility and Composition} ?}
-Ticc est un outil qui permet de définir des interfaces (appelées modules) et de les composer. Il est écrit en OCaml et est disponible gratuitement sur la page suivante : \url{http://dvlab.cse.ucsc.edu/Ticc/Download}.
+\subsection{Qu'est ce que Ticc ?}
+Ticc~\protect\footnote{Tool for Interface Compatibility and Composition}~\cite{siteTicc, ticcDocumentation} est un outil qui permet de définir des interfaces (appelées modules) et de les composer. Il est écrit en OCaml et est disponible gratuitement.
 
 \paragraph{}Ticc fournit les fonctions suivantes : \\
 \begin{itemize}
