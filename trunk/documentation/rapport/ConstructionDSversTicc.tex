@@ -1,4 +1,3 @@
-\newpage
 \chapter{Construction d'automates d'interfaces}
 
 Le but principal du projet est, partant d'un diagramme de définition de blocs, de récupérer deux blocs interagissant ensembles et de pouvoir valider le fait qu'ils soient compatibles l'un avec l'autre.
@@ -14,19 +13,20 @@ ATL entre en jeu à ce moment, il permet d'effectuer des transformations de modèl
     \item écrire les règles ATL permettant le passage d'un diagramme de séquences à un fichier Ticc;
     \item appliquer les règles ATL sur un fichier contenant les diagrammes de séquences de deux blocs (appelés par la suite composants), ce fichier doit être conforme au méta modèle du diagramme de séquences;
     \item parser le fichier obtenu après application des règles pour obtenir un fichier compatible Ticc contenant les deux composants;
-    \item générer un fichier d'exécution Ticc;
+    \item générer un fichier d'exécution Ticc en OCaml;
     \item lancer le fichier d'exécution dans Ticc et conclure sur la compatibilité des composants.
 
 \end{itemize}
 
 \section{Introduction {\`a} la transformation de mod{\`e}les}
 
-Parmi les nombreux sujets de recherche existants, la conception et l'utilisation de mod{\`e}les fait parti de ceux qui sont en pleine expansion. Le but de cette recherche {\'e}tant l'utilisation continue et syst{\'e}matique de ces mod{\`e}les tout au long d'un projet. L'un des aspects les plus importants {\'e}tant la g{\'e}n{\'e}ration et la transformation de mod{\`e}les {\`a} partir de r{\`e}gles. Il sera ainsi pr{\'e}sent{\'e} dans la suite de cette section, les diff{\'e}rentes approches de la transformation de mod{\`e}les, dont le but est d'introduire la transformation d'un diagramme de s{\'e}quence SysML vers un automate d'interface Ticc.
+Parmi les nombreux sujets de recherche existants, la conception et l'utilisation de mod{\`e}les font parti de ceux qui sont en pleine expansion. Le but de cette recherche {\'e}tant l'utilisation continue et syst{\'e}matique de ces mod{\`e}les tout au long d'un projet. L'un des aspects les plus importants {\'e}tant la g{\'e}n{\'e}ration et la transformation de mod{\`e}les {\`a} partir de r{\`e}gles. Il sera ainsi pr{\'e}sent{\'e} dans la suite de cette section, les diff{\'e}rentes approches de la transformation de mod{\`e}les, dont le but est d'introduire la transformation d'un diagramme de s{\'e}quence SysML vers un automate d'interfaces Ticc.
 
 \subsection{Transformation endog{\`e}ne}
-Une transformation endog{\`e}ne (ou raffinement) de mod{\`e}le consiste {\`a} modifier le contenu d'un mod{\`e}le sans en changer le but ou la s{\'e}mantique. Il s'agit de rajouter des d{\'e}tails {\`a} un mod{\`e}le ou bien de le restructurer pour en am{\'e}liorer la conception. Par principe, le raffinement implique que les deux mod{\`e}les, le mod{\`e}le source et le mod{\`e}le cible, soient du m{\^e}me type, c'est-{\`a}-dire conformes au m{\^e}me m{\'e}ta-mod{\`e}le.
 
-\noindent La figure~\ref{raffinement} ci-dessous repr{\'e}sente ce concept.
+Une transformation endog{\`e}ne (ou raffinement) de mod{\`e}le consiste {\`a} modifier le contenu d'un mod{\`e}le sans en changer le but ou la s{\'e}mantique. Il s'agit de rajouter des d{\'e}tails {\`a} un mod{\`e}le ou bien de le restructurer pour en am{\'e}liorer la conception. Par principe, le raffinement implique que les deux mod{\`e}les, le mod{\`e}le source et le mod{\`e}le cible, soient du m{\^e}me type, c'est-{\`a}-dire conformes au m{\^e}me m{\'e}ta mod{\`e}le.
+
+\noindent La figure~\ref{raffinement} ci-dessous repr{\'e}sente ce concept :
 
 \begin{figure}[!ht]
 	\centering
@@ -37,9 +37,10 @@ Une transformation endog{\`e}ne (ou raffinement) de mod{\`e}le consiste {\`a} mo
 \end{figure}
 
 \subsection{Transformation exog{\`e}ne}
-Il s'agit d'une transformation entre deux espaces technologiques diff{\'e}rents. Les mod{\`e}les source et cible sont conformes {\`a} des m{\'e}ta-mod{\`e}les diff{\'e}rents. Par exemple la convertion d'un fichier XML en un sch{\'e}ma BDD.\\
 
-\noindent C'est cette configuration de transformation qui a {\'e}t{\'e} mise en {\oe}uvre dans le projet. La figure~\ref{projection} ci-dessous repr{\'e}sente ce concept.
+Il s'agit d'une transformation entre deux espaces technologiques diff{\'e}rents. Les mod{\`e}les source et cible sont conformes {\`a} des m{\'e}ta-mod{\`e}les diff{\'e}rents. Par exemple la conversion d'un fichier XML en un sch{\'e}ma BDD.
+
+\noindent C'est cette configuration de transformation qui a {\'e}t{\'e} mise en {\oe}uvre dans le projet. La figure~\ref{projection} ci-dessous repr{\'e}sente ce concept : 
 
 \begin{figure}[!ht]
 	\centering
@@ -50,19 +51,24 @@ Il s'agit d'une transformation entre deux espaces technologiques diff{\'e}rents.
 \end{figure}
 
 \subsection{Transformation g{\'e}n{\'e}rique}
-Ce type de transformation se base sur les m{\'e}ta-m{\'e}tamod{\`e}les (mod{\`e}le MOF\protect\footnote{Meta-Object Facility}) et produit un mod{\`e}le cible g{\'e}n{\'e}rique, qui peut {\^e}tre r{\'e}utilisable. Elle peut {\^e}tre exog{\`e}ne ou endog{\`e}ne.
+
+Ce type de transformation se base sur les m{\'e}ta m{\'e}ta mod{\`e}les (mod{\`e}le MOF\protect\footnote{Meta-Object Facility}) et produit un mod{\`e}le cible g{\'e}n{\'e}rique, qui peut {\^e}tre r{\'e}utilisable. Elle peut {\^e}tre exog{\`e}ne ou endog{\`e}ne.
 
 \subsection{Query}
-La transformation de mod{\`e}le query est un type de transformation qui permet la transformation d'un m{\'e}ta-mod{\`e}le en texte (documentation ou code source).\\
-Par exemple :
+
+La transformation de mod{\`e}le query est un type de transformation qui permet la transformation d'un m{\'e}ta mod{\`e}le en texte (documentation ou code source).
+
+\noindent Par exemple :
 \begin{itemize}
-\item transformer un mod{\`e}le UML vers du code Java;
-\item contr{\^o}ler la coh{\'e}rence d'un mod{\`e}le UML en ecrivant une transformation qui affiche un diagnostic.
+	\item transformer un mod{\`e}le UML vers du code Java;
+	\item contr{\^o}ler la coh{\'e}rence d'un mod{\`e}le UML en écrivant une transformation qui affiche un diagnostic.
+	
 \end{itemize}
 
 \section{Réalisation}
 
 \subsection{ATL : un choix technique}
+
 L'utilisation d'ATL, pour la récupération et le traitement d'un fichier Ticc contenant deux composants, requiert :
 \begin{itemize}
     \item deux méta modèles en entrée : un de base (celui du diagramme de séquences) et un d'arrivé (celui du langage Ticc);
@@ -86,6 +92,7 @@ Par principe, les messages échangés se font entre un composant et son environnem
     \item \textbf{seq} : messages n'ayant pas d'ordre particulier.
 
 \end{itemize}
+
 Ces ensembles peuvent contenir eux-mêmes d'autres ensembles contenant des messages. Un message est composé d'un émetteur et d'un récepteur. Il possède aussi une méthode associée qui possède un nom.
 
 Une séquence type pour le diagramme de séquences, dont il est question d'utiliser dans le cadre du projet, sera composée de différents composants \textit{NamedElement}, de messages \textit{Message} et éventuellement d'ensembles de messages \textit{TypeMessage}.
@@ -140,8 +147,7 @@ Après génération des deux méta modèles intervient l'écriture des règles ATL perm
 
 Un algorithme permettant le passage d'un diagramme de séquences en un automate d'interface était fourni en début de projet. Cependant l'application d'un algorithme itératif récursif en règles ATL n'est pas possible du fait de la conception d'ATL utilisant EMF\protect\footnote{Eclipse Modeling Framework : framework de modélisation d'eclipse} qui utilise des modèles de données structurées.
 
-Pour l'exécution d'ATL, ce qu'il faut savoir c'est qu'il prend en entrée un fichier de type \textit{XMI}\protect\footnote{XML Metadata Interchange : format standard de représentation de modèles UML basé sur XML} et génère en sortie un fichier du même type. Un exemple de fichier d'entrée XMI peut être trouvé en annexe.
-%TODO: METTRE LA REFERENCE A L'ANNEXE !!!
+Pour l'exécution d'ATL, ce qu'il faut savoir c'est qu'il prend en entrée un fichier de type \textit{XMI}\protect\footnote{XML Metadata Interchange : format standard de représentation de modèles UML basé sur XML} et génère en sortie un fichier du même type.
 
 Comme annoncé en début de~\ref{subsubMMDiagSeq}, les échanges d'un composant se font entre lui et un composant abstrait appelé \textit{Environnement}. Il représente tous les autres composants émettant ou réceptionnant des messages du composant étudié dans la séquence.
 
@@ -164,7 +170,8 @@ Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement corr
 \label{compatibiliteAutomate}
 
 \subsection{Processus de transformation}
-\noindent Comme déjà établi tout au long du rapport, le schéma~\ref{ProcessusTransformation} ci-dessous permet de visualiser les différentes étapes de transformations de modèles, ainsi que l'implémentation réalisée dans le projet. 
+
+Comme déjà établi tout au long du rapport, le schéma~\ref{ProcessusTransformation} ci-dessous permet de visualiser les différentes étapes de transformations de modèles, ainsi que l'implémentation réalisée dans le projet. 
 
 \begin{figure}[!ht]
 	\centering
@@ -174,6 +181,6 @@ Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement corr
 
 \end{figure}
 
-\noindent Le diagramme de séquence traduit en fichier XMI suit les règles ATL pour être transformé en modèle Ticc également sous format XMI. A l'aide d'un parseur JDom, le modèle Ticc est transformé sous la syntaxe Ticc en un automate d'interface. Le fichier executable .in produit peut ensuite être interprété par Ticc pour la vérification de la compatibilité.
+Le diagramme de séquence traduit en fichier XMI suit les règles ATL pour être transformé en modèle Ticc également sous format XMI. A l'aide d'un parseur JDom, le modèle Ticc est transformé sous la syntaxe Ticc en un automate d'interface. Le fichier executable .in produit peut ensuite être interprété par Ticc pour la vérification de la compatibilité.
 
 \clearpage
