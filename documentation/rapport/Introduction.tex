@@ -2,7 +2,7 @@
 
 Suivant les évolutions des technologies, les systèmes deviennent de plus en plus complexe et requièrent la mise en place de différentes approches afin que concepteurs et developpeurs puissent collaborer de manière efficace. La modélisation permet de faciliter la conception et d'avoir un système sûr répondant aux exigences définies.
 
-L'ingénierie des systèmes (IS) propose une méthodologie reposant sur des approches de modélisation, vérification de systèmes permettant leur évolution tout en apportant une solution économique et performante. Pour la modélisation de systèmes complexes, les langages de modélisation graphique se présentent comme une solution puissante et appropriée.
+L'ingénierie des systèmes (IS) propose une méthodologie reposant sur des approches de modélisation, vérification de systèmes permettant leur évolution tout en apportant une solution économique et performante. Pour la modélisation de systèmes complexes hétérogènes, logiciel et matériel notamment dans le domaine de l'embarqué, les langages de modélisation graphique se présentent comme une solution puissante et appropriée.
 
 UML est un langage de modélisation graphique notamment utilisé dans le domaine du génie logiciel dans le cadre de la \enquote{conception orienté objet}. Il a été proposé en 1997 par l'OMG et a très vite été adopté par de nombreuses entreprises. Il offre un standard de modélisation ne se restreignant pas seulement au domaine informatique. Cependant, il ne répond pas à toutes les attentes de l'ingénierie des systèmes. Ce besoin d'avoir un langage adapté a été initié en 2001 par l'INCOSE\protect\footnote{International Council On Systems Engineering} afin de définir un langage basé sur UML adapté aux applications d'ingénierie système.
 
@@ -11,12 +11,12 @@ Les améliorations qu'il apporte par rapport à UML lui ont permis d'accroître sa 
 SysML introduit de nouveaux concepts comme la disparition des classes UML au profit de blocs qui sont l'unité de base de la structure d'un système (logiciel ou matériel). Ainsi le diagramme de classes UML est remplacé par le diagramme de définition de blocs (BDD\protect\footnote{Block Definition Diagram}). Celui-ci met en avant la hiérarchie du système et les différentes interactions entre les composants.
 Ces interactions peuvent être représentées sous forme d'un diagramme de séquences modélisant les échanges de messages dans le temps.
 
-Cependant, la modélisation ne permet pas à elle seule de vérifier et valider la compatibilité des composants entre eux. 
+Cependant, la modélisation graphique ne permet pas à elle seule de vérifier et valider la compatibilité des composants entre eux. 
 
 Dans un modèle basé sur les composants, la vérification de compatibilité entre composants est introduite par la notion d'automates d'interfaces. Ils servent à décrire les différentes interactions d'entrées/sorties donc le comportement d'un composant avec son environnement.
 
 C'est dans ce contexte que se situe le projet. Partant d'un diagramme de définition de blocs, tous les blocs ayant des interactions avec d'autres donnent accès à des diagrammes de séquences associés. Ces diagrammes sont ensuite transformés en automates d'interfaces. Une vérification de leur compatibilité est alors possible.
 
-Dans un premier temps, une première partie sera consacrée à fixer le cadre du projet ainsi que les différents outils qui ont été utilisés. Ensuite, une deuxième partie exposera la mise en \oe{}uvre du projet. Et en dernier lieu, les différents problèmes qui ont été rencontrés.
+Dans un premier temps, une première partie sera consacrée à fixer le cadre du projet ainsi que les différents outils qui ont été utilisés. Ensuite, une deuxième partie abordera la transformation de modèles avec l'utilisation du langage ATL. Une troisième partie donnera une vue sur la vérification de compatibilité entre composants avec l'utilisation de l'outil Ticc. Enfin, une dernière partie parlera des différents problèmes qui ont été rencontrés tout au long du projet.
 
 \clearpage

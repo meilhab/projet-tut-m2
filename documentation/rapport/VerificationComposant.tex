@@ -29,16 +29,18 @@ L'ensemble des actions est décomposé en trois ensembles :
     \item un sous-ensemble fini d'états initiaux $I_A$ tel que $I_A \subseteq S_A$;
     \item un ensemble d'actions d'entrée $\Sigma_A^I$;
     \item un ensemble d'actions de sortie $\Sigma_A^0$;
-    \item un ensemble d'actions internes $\Sigma_A^H$.
+    \item un ensemble d'actions internes $\Sigma_A^H$;
     \item un ensemble $\mathcal{T}_A \subseteq S_A \times \Sigma_A \times S_A$ de transitions entre états.
 
 \end{itemize}
 
 \section{Compatibilité entre composants}
 
-Vérifier la compatibilité entre deux composants revient à vérifier la compatibilité entre leur deux automates d'interfaces respectif.
+Vérifier la compatibilité entre deux composants revient à vérifier la compatibilité entre leur deux automates d'interfaces respectif. Cependant, la vérification de cette compatibilité nécessite différentes étapes intermédiaires.
 
-Pour ce faire, il faut commencer par vérifier que les deux automates sont composables, c'est à dire que leurs ensembles d'actions d'entrée, de sortie et internes sont disjoints.
+\subsubsection{Composabilité de composants}
+
+Il faut commencer par vérifier que les deux automates sont composables, c'est à dire que leurs ensembles d'actions d'entrée, de sortie et internes sont disjoints.
 
 Deux automates d'interfaces P et Q sont composables si :
 \begin{center}
@@ -52,23 +54,28 @@ Deux automates d'interfaces P et Q sont composables si :
 
 \end{center}
 
+\subsubsection{Produit synchronisé de composants}
+
 L'étape suivante consiste à faire le produit synchronisé des deux automates et vérifier qu'il ne possède pas d'états dît illégaux : ce sont des états à partir desquels une action de sortie partagée d'un automate ne peut pas être synchronisée avec la même action activée en entrée dans l'autre composant.
 
 Le produit synchronisé de deux automate d'interfaces P et Q  noté $A_P \otimes A_Q$ est défini par :
 \begin{itemize}
 	\item[$\bullet$] $S_{P \otimes Q} = S_P \times S_Q et I_{P \otimes Q} = I_P \times I_Q$;
 	\item[$\bullet$] $\Sigma_{P \otimes Q}^I = (\Sigma_P^I \cup \Sigma_Q^I) \setminus Shared(P,Q)$;
-	\item[$\bullet$] $\Sigma_{P \otimes Q}^O = (\Sigma_P^O \cup \Sigma_Q^O) \setminus Shared(P,Q)$
-	\item[$\bullet$] $\Sigma_{P \otimes Q}^H = (\Sigma_P^H \cup \Sigma_Q^H) \setminus Shared(P,Q)$
-	\item[$\bullet$] $((s_1,s_2),a,(s_1^{'},s_2^{'})) \in \mathcal{T}_{P \otimes Q}$ si
+	\item[$\bullet$] $\Sigma_{P \otimes Q}^O = (\Sigma_P^O \cup \Sigma_Q^O) \setminus Shared(P,Q)$;
+	\item[$\bullet$] $\Sigma_{P \otimes Q}^H = (\Sigma_P^H \cup \Sigma_Q^H) \setminus Shared(P,Q)$;
+	\item[$\bullet$] $((s_1,s_2),a,(s_1^{'},s_2^{'})) \in \mathcal{T}_{P \otimes Q}$ si :
 	\begin{itemize}
 		\item $a \notin Shared(P,Q) \wedge (s_1,a,s_1^{'}) \in \mathcal{T}_P \wedge s_2 = s_2^{'}$;
 		\item $a \notin Shared(P,Q) \wedge (s_2,a,s_2^{'}) \in \mathcal{T}_Q \wedge s_1 = s_1^{'}$;
 		\item $a \in Shared(P,Q) \wedge (s_1,a,s_1^{'}) \in \mathcal{T}_P \wedge (s_2,a,s_2^{'}) \in \mathcal{T}_Q$.
 	
 	\end{itemize}
-
+		
 \end{itemize}
+Avec $Shared(P,Q) = \Sigma_P \cap \Sigma_Q$.
+
+\subsubsection{Notion d'états illégaux}
 
 Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
 \begin{center} 
@@ -84,10 +91,12 @@ Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
 
 \end{center}
 
+\subsubsection{Compatibilité entre deux composants}
+
 Deux automates d'interfaces sont incompatibles s'il existe un état illégal atteignable depuis les états initiaux dans le produit synchronisé de deux comportements.
 
 
 \section{Compatibilité des automates d'interfaces avec Ticc}
-
+TODO
 
 \clearpage
