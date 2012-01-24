@@ -162,7 +162,6 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 
 \date{
 	\begin{center} 
-	%	\includegraphics[width=7cm]{ufc.jpg}
         \includegraphics[scale=0.15]{ufc.jpg}
 	\end{center}
 	\vspace{5mm}
@@ -178,28 +177,15 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 
 
 \begin{document}
-\pagestyle{empty}
 \maketitle
 
 \input{Remerciement}
-
-%\pagenumbering{Roman} 
-\setcounter{page}{1} 
-
-%\input{Abstract}
-
-%\input{Acknowledgment}
-
+\addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents
+
 \clearpage
-\newpage
 
-%\sommaire
-%\addcontentsline{toc}{chapter}{Sommaire}
-%\clearpage
-
-%\pagenumbering{arabic} 
-%\setcounter{page}{1} 
+\setcounter{page}{1} 
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}} 
@@ -217,11 +203,6 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 
 \input{ConclusionPerspectives}
 
-\clearpage
-\newpage
-
-%\input{Glossaire}
-
 %%%%%----------------------------------------
 %%%%% Pour la bibliographie
 %%%%%----------------------------------------
@@ -235,7 +216,6 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 \bibliography{Bibliographie}
 \addcontentsline{toc}{chapter}{Bibliographie}
 \clearpage
-\newpage
 
 \printindex
 
@@ -246,6 +226,5 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 \clearpage
 
 \input{Annexes}
-%\addcontentsline{toc}{chapter}{Annexes}
 
 \end{document}
