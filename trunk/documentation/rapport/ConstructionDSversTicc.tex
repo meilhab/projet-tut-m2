@@ -151,15 +151,50 @@ Un algorithme permettant le passage d'un diagramme de séquences en un automate d
 
 Pour l'exécution d'ATL, ce qu'il faut savoir c'est qu'il prend en entrée un fichier de type \textit{XMI}\protect\footnote{XML Metadata Interchange : format standard de représentation de modèles UML basé sur XML} et génère en sortie un fichier du même type.
 
-Comme annoncé en début de~\ref{subsubMMDiagSeq}, les échanges d'un composant se font entre lui et un composant abstrait appelé \textit{Environnement}. Il représente tous les autres composants émettant ou réceptionnant des messages du composant étudié dans la séquence.
+Comme annoncé en début de~\ref{subsubMMDiagSeq}, les échanges d'un composant se font entre lui et un composant abstrait appelé \textit{Environnement}. Il représente tous les autres composants émettant ou réceptionnant des messages du composant étudié dans la séquence. La figure~\ref{diagSeqExemple} permet d'illustrer un échange de ce type.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{diagSeqExemple.png}
+    \caption{Exemple de diagramme de séquences}
+    \label{diagSeqExemple}
+
+\end{figure}
+
+En reprenant les deux méta modèles vus précédemment (figures~\ref{figureMMDiagSeq} et~\ref{figureMMTicc}), on peut constater des similitudes qui permettent de faire les transformations. La figure~\ref{figureSimilitude} permet d'avoir, via des méta modèles simplifiés, une vue des éléments qui subiront une transformation avec une règle ATL.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{figureSimilitudeSeqTicc.png}
+    \caption{Similitude du méta modèle du diagramme de séquences avec celui de Ticc}
+    \label{figureSimilitude}
+
+\end{figure}
 
 \noindent Les règles sont les suivantes : 
 \begin{itemize}
-	\item Le diagramme de séquences devient un modèle Ticc;
-	\item Les séquences du diagramme de séquences deviennent des modules;
-	\item Les messages en fonction de l'émetteur et du récepteur deviennent des transitions d'entrée ou de sortie : un message provenant du composant \textit{Environnement} correspond à une transition d'entrée.
+	\item Le diagramme de séquences devient un modèle Ticc, toutes les séquences qu'il contient deviennent des éléments de type module que possède le modèle Ticc;
+	\item Une séquence du diagramme de séquence devient un module :
+    \begin{itemize}
+        \item[$\bullet$] le nom du module est le même que celui de la séquence;
+        \item[$\bullet$] le nombre d'états possédé correspond au nombre de \textit{NamedElement};
+        \item[$\bullet$] l'état initial correspond à l'émetteur du premier message de la séquence;
+        \item[$\bullet$] les transitions du modèle Ticc sont en correspondance avec les éléments de type \textit{Message} du modèle du diagramme de séquences.
+
+    \end{itemize}
+
+    \item Un message devient une transition de type \textit{LocalInput} ou \textit{Output} en fonction de l'émetteur ou du récepteur du message :
+    \begin{itemize}
+        \item[$\bullet$] il devient une transition \textit{LocalInput} si l'émetteur du message est le \textit{NamedElement} nommé \textit{Environnement};
+        \item[$\bullet$] il devient une transition \textit{Output} si le récepteur du message est le \textit{NamedElement} nommé \textit{Environnement};
+        \item[$\bullet$] le nom de la transition est celui de la méthode qu'appelle le message;
+        \item[$\bullet$] la source et la destination d'une transition sont respectivement l'émetteur et le receveur d'un message.
+
+    \end{itemize}
 
 \end{itemize}
+
+Pour la validité de ces règles, il convient bien sûr que seuls les messages émis par le composant voulu et les messages qu'il reçoit sont intéressant. Les autres sont ignorés.
 
 % ANNEXE !!!!
 Le fichier d'entrée exemple, le fichier des règles ATL et le fichier de sortie sont disponibles en annexe (\ref{fichierExempleEntree}, \ref{regleATL} et \ref{fichierExempleSortie}).
