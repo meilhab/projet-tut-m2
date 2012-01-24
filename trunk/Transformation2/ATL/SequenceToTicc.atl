@@ -4,17 +4,13 @@
 module SequenceToTicc;
 create OUT : TiccMetaModel from IN : SequenceMetaModel;
 
-helper context SequenceMetaModel!Sequences def : isSequenceRoot() : Boolean =
-	self.refImmediateComposite().oclIsUndefined();
-
 rule SequenceToModule{
 	from s : SequenceMetaModel!Sequences
 	to t : TiccMetaModel!Module (
-		--TODO: controle premier message pour point d'entree initial automate : etatInitial
 		nom <- s.nom,
 		transition <- s.isComposedBy,
 		nbEtat <- s.isComposed.size(),
-		etatInitial <- s.isComposedBy->debug()->first().sendBy.identifiant.debug()
+		etatInitial <- s.isComposedBy->first().sendBy.identifiant
 	)
 }
 

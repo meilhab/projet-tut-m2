@@ -16,18 +16,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Message">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sendTo" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendBy" lowerBound="1"
         eType="#//NamedElement" eOpposite="#//NamedElement/sender"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveFrom" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiveBy" lowerBound="1"
         eType="#//NamedElement" eOpposite="#//NamedElement/receiver"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calls" lowerBound="1" eType="#//Method"
         eOpposite="#//Method/isCalled"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sender" upperBound="-1"
-        eType="#//Message" eOpposite="#//Message/sendTo"/>
+        eType="#//Message" eOpposite="#//Message/sendBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" upperBound="-1"
-        eType="#//Message" eOpposite="#//Message/receiveFrom"/>
+        eType="#//Message" eOpposite="#//Message/receiveBy"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
