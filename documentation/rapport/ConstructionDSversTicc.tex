@@ -20,7 +20,7 @@ ATL entre en jeu à ce moment, il permet d'effectuer des transformations de modèl
 
 \section{Introduction {\`a} la transformation de mod{\`e}les}
 
-Parmi les nombreux sujets de recherche existants, la conception et l'utilisation de mod{\`e}les font parti de ceux qui sont en pleine expansion. Le but de cette recherche {\'e}tant l'utilisation continue et syst{\'e}matique de ces mod{\`e}les tout au long d'un projet. L'un des aspects les plus importants {\'e}tant la g{\'e}n{\'e}ration et la transformation de mod{\`e}les {\`a} partir de r{\`e}gles. Il sera ainsi pr{\'e}sent{\'e} dans la suite de cette section, les diff{\'e}rentes approches de la transformation de mod{\`e}les, dont le but est d'introduire la transformation d'un diagramme de s{\'e}quence SysML vers un automate d'interfaces Ticc.
+Parmi les nombreux sujets de recherche existants, la conception et l'utilisation de mod{\`e}les font parti de ceux qui sont en pleine expansion. Le but de cette recherche {\'e}tant l'utilisation continue et syst{\'e}matique de ces mod{\`e}les tout au long d'un projet. L'un des aspects les plus importants est la g{\'e}n{\'e}ration et la transformation de mod{\`e}les {\`a} partir de r{\`e}gles. Il sera ainsi pr{\'e}sent{\'e} dans la suite de cette section, les diff{\'e}rentes approches de la transformation de mod{\`e}les, dont le but est d'introduire la transformation d'un diagramme de s{\'e}quence SysML vers un automate d'interfaces Ticc.
 
 \subsection{Transformation endog{\`e}ne}
 
@@ -82,7 +82,7 @@ L'utilisation d'ATL, pour la récupération et le traitement d'un fichier Ticc con
 \subsubsection{Méta modèle du diagramme de séquences}
 \label{subsubMMDiagSeq}
 
-Le méta modèle de séquence existant n'a pas été pris dans son ensemble, seules les parties importantes ont été extraites.
+Le méta modèle du diagramme de séquence existant n'a pas été pris dans son ensemble, seules les parties importantes ont été extraites.
 Par principe, les messages échangés se font entre un composant et son environnement.
 
 \noindent Les ensembles de messages pris en compte sont :
@@ -100,7 +100,7 @@ La figure~\ref{figureMMDiagSeq} représente le méta modèle réfléchit dans le cadr
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.62]{MMDiagSeq.jpg}
+	\includegraphics[scale=0.7]{MMDiagSeq.jpg}
 	\caption{Méta modèle du diagramme de séquences utile pour le projet}
 	\label{figureMMDiagSeq}
 
@@ -127,7 +127,7 @@ Il contient ensuite les différentes transitions possibles de l'automate :
 				
 \end{itemize}
 
-Dans le cas d'un changement d'état, l'état suivant est noté d'un \' (voir l'exemple ci-dessus avec \textbf{s'}).
+Dans le cas d'un changement d'état, l'état suivant est noté d'un \enquote{'} (voir l'exemple ci-dessus avec \textbf{s'}).
 
 \clearpage
 
@@ -135,13 +135,11 @@ Dans le cas d'un changement d'état, l'état suivant est noté d'un \' (voir l'exem
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.62]{MMTicc.jpg}
+	\includegraphics[scale=0.7]{MMTicc.jpg}
 	\caption{Méta modèle de la syntaxe de Ticc utile pour le projet}
 	\label{figureMMTicc}
 
 \end{figure}
-
-%TODO a completer avec reference fichier Ticc
 
 \subsection{Les règles ATL}
 
@@ -198,7 +196,6 @@ En reprenant les deux méta modèles vus précédemment (figures~\ref{figureMMDiagSe
 
 Pour la validité de ces règles, il convient bien sûr que seuls les messages émis par le composant voulu et les messages qu'il reçoit sont intéressant. Les autres sont ignorés.
 
-% ANNEXE !!!!
 Le fichier d'entrée exemple, le fichier des règles ATL et le fichier de sortie sont disponibles en annexe (\ref{fichierExempleEntree}, \ref{regleATL} et \ref{fichierExempleSortie}).
 
 \subsection{Parseur XML vers Ticc}
