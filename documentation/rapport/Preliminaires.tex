@@ -39,7 +39,7 @@ SysML r{\'e}utilise certaines fonctionnalit{\'e}s d'UML mais en les simplifiant 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.75]{image3.png}
+	\includegraphics[scale=0.6]{image3.png}
 	\caption{UML vs SysML}
 	\label{UMLSysML}
 
@@ -52,7 +52,7 @@ SysML r{\'e}utilise certaines fonctionnalit{\'e}s d'UML mais en les simplifiant 
 	\item diagramme de cas d'utilisations;
 	\item diagramme d'activit{\'e}s;
 	\item diagramme de paquetage;
-	\item diagrammes de classe et structure composite (utilis{\'e}s pour les diagrammes de d{\'e}finitions de blocs et de bloc interne - BDD\protect\footnote{Block Definition Diagram} \& IDB\protect\footnote{Block Definition Diagram}.
+	\item diagrammes de classe et structure composite (utilis{\'e}s pour les diagrammes de d{\'e}finitions de blocs et de bloc interne) BDD\protect\footnote{Block Definition Diagram} \& IDB\protect\footnote{Block Definition Diagram}.
 
 \end{itemize}
 
@@ -97,7 +97,7 @@ La structure de SysML peut {\^e}tre d{\'e}compos{\'e}e via le diagramme présenté
 
 \begin{figure}[!ht]
 	\centering 
-	\includegraphics[scale=0.5]{image5.jpg}
+	\includegraphics[scale=0.6]{image5.jpg}
 	\caption{Description des diagrammes SysML}
 	\label{Description des diagrammes SysML}
 
@@ -150,7 +150,7 @@ Le langage SysML a {\'e}t{\'e} int{\'e}gr{\'e} dans de nombreux outils AGL\prote
 \end{itemize}
 
 \section{TopCased}
-%%%%%%%%%%TODO mettre une référence sur le chapitre des transformations de modèle
+
 L'IDE\protect\footnote{Integrated Development Environment} Topcased\protect\footnote{Toolkit in Open Source for Critical Applications \& Systems Development}~\cite{siteTopcased} propose des outils intéressants et facilement exploitables pour l'ingénierie système. Sont implémentés (ou en cours d'implémentation) des moyens d'analyse d'exigences, modélisation, simulation de modèles, implémentation, test, validation, rétro-ingénierie, génération de code, de modèles et de documentation, et gestion de projet.
 
 On le trouve soit sous forme de plugin d'eclipse, soit en tant qu'application RCP\protect\footnote{Rich Client Platform}. Il contient donc un IDE basé sur le framework de la plate forme de développement Eclipse, à laquelle il ajoute des fonctionnalités essentiellement liées à la mise en \oe{}uvre de la première branche du cycle en V pour l'ingénierie du logiciel, du matériel ou de systèmes mixtes logiciel/matériel.
@@ -171,11 +171,11 @@ S'appuyant principalement sur des langages standardisés pour la modélisation du 
 
 \subsection{Qu'est ce que Ticc ?}
 
-Ticc~\protect\footnote{Tool for Interface Compatibility and Composition}~\cite{siteTicc, ticcDocumentation} est un outil qui permet de définir des interfaces (appelées modules) et de les composer ensembles. Il est écrit en OCaml et est disponible gratuitement.
+Ticc~\protect\footnote{Tool for Interface Compatibility and Composition}~\cite{siteTicc, ticcDocumentation} est un outil qui permet de définir des interfaces (appelées modules) et de les composer ensembles. Il est écrit en OCaml et est disponible gratuitement. Il utilise le modèle à composants d'Alfaro et Henzinger défini dans~\ref{sectionAutomateInterface}.
 
 \noindent Ticc fournit les fonctions suivantes :
 \begin{itemize}
-	\item La modélisation des composantes de conception et leurs interactions : 
+	\item La modélisation des composants de conception et leurs interactions : 
 	\begin{itemize}
 		\renewcommand{\labelitemii}{$\bullet$}
 		\item Chaque composant peut spécifier son comportement, ainsi que le comportement attendu des autres composants;
@@ -189,7 +189,7 @@ Ticc~\protect\footnote{Tool for Interface Compatibility and Composition}~\cite{s
 		\renewcommand{\labelitemii}{$\bullet$}
 		\item Lorsque les composants sont assemblés, Ticc vérifie qu'ils interagissent correctement;
 		\item Ticc est capable de propager les contraintes d'entrée des composants lors de la composition;
-		\item Avantage : la constance du modèle est assurée.
+		\item Avantage : la cohérence du modèle est assurée.
 
 	\end{itemize}
 	
@@ -206,9 +206,7 @@ Ticc~\protect\footnote{Tool for Interface Compatibility and Composition}~\cite{s
 
 Cet outil a été créé par Luca de Alfaro, Bo Adler, Marco Faella, Axel Legay, Vishwanath Raman, Leandro Dias Da Silva, et Pritam Roy. Ticc est en développement constant, et des versions sont régulièrement mises à jour avec de nouvelles fonctionnalités. La version actuelle est la 0.3.
 
-\subsection{Utilisation de Ticc}
-
-\subsubsection{Utilisation}
+\subsection{Un exemple d'utilisation de Ticc}
 \label{utilisationTicc}
 
 Afin de pouvoir faire des opération sur des modèles, Ticc doit prendre en entrée deux fichiers différents : 
@@ -218,22 +216,22 @@ Afin de pouvoir faire des opération sur des modèles, Ticc doit prendre en entrée
 
 \end{itemize} 
 
-\subsubsection{Exemples concernant les fichiers}
+\subsubsection{Le modèle}
 
-\begin{itemize}
-	\item Le modèle
-	\lstinputlisting{./doc/fire-detector.si}
+\lstinputlisting{./doc/fire-detector.si}
+
 Ce modèle illustre un détecteur de fumée et sa centrale d'alarme. La centrale d'alarme collecte les alarmes des détecteurs de fumées, et envoie un message aux pompiers (ControlUnit) s'il y a une alarme déclenchée.
-	\item Le code OCaml
-	\lstinputlisting{./doc/fire-detector.in}
+
+\subsubsection{Le code OCaml}
+
+\lstinputlisting{./doc/fire-detector.in}
+
 Ce script  Ocaml montre le chargement du modèle depuis le fichier « fire-detector.si », l'instanciation des modules, et leur composition.
 
-\end{itemize}
+\subsubsection{Approche de la compatibilité}
 
-\subsubsection{Exemple abordant la compatibilité}
-
-Lors de la composition de deux interfaces P et Q, on doit s'assurer que les contraintes de sorties de P respectent les contraintes d'entrées de Q, et vice versa.\\
-On peut remarquer dans l'exemple de la figure~\ref{Detecteur de Fumee} que les deux automates d'interfaces sont incompatibles car l'un produit un événement \enquote{FD!} alors que l'autre non.
+Lors de la composition de deux interfaces des composants \textit{FireDetection} et \textit{ControlUnit}, on doit s'assurer que les contraintes de sorties de \textit{FireDetection} respectent les contraintes d'entrées de \textit{ControlUnit}, et vice versa.\\
+On peut remarquer dans l'exemple de la figure~\ref{Detecteur de Fumee} que les deux automates d'interface sont incompatibles car l'un produit un événement \enquote{FD!} alors que l'autre non.
 
 \begin{figure}[!ht]
 	\centering 

@@ -2,10 +2,10 @@
 
 Le langage de modélisation SysML connait un succès grandissant dans le milieu industriel et académique du fait des améliorations qu'il apporte par rapport à UML. Il permet de donner à un projet, une vue d'ensemble des interactions entre blocs. Cependant, il ne permet pas de vérifier si ces interactions sont correctes.
 
-D'un autre côté, dans le domaine des composants, il est possible de spécifier des automates d'interfaces leur correspondant. Ces automates contiennent les différentes actions, internes, d'entrée et de sortie du composant. Les recherches sur le sujet de L. Alfaro et T. Henzinger ont permis de définir ses automates et ouvert la voie à la vérification de compatibilité entre composants. Cette vérification est basée sur la composition des interfaces et sur la synchronisation des actions des composants. Si deux automates d'interfaces sont compatibles, leurs composants associés le seront aussi.
-L.Alfaro et T. Henzinger ont ainsi développé un logiciel nommé Ticc permettant d'interagir avec des automates d'interfaces et de tester la compatibilité entre deux composants.
+D'un autre côté, dans le domaine des composants, il est possible de spécifier des automates d'interface correspondants. Ces automates contiennent les différentes actions, internes, d'entrée et de sortie du composant. Les recherches sur le sujet de L. Alfaro et T. Henzinger ont permis de définir ces automates et ouvert la voie à la vérification de la compatibilité entre composants. Cette vérification est basée sur la composition des interfaces et sur la synchronisation des actions des composants. Si deux automates d'interface sont compatibles, leurs composants associés le seront aussi.
+L.Alfaro et T. Henzinger ont ainsi développé un logiciel nommé Ticc permettant d'interagir avec des automates d'interface et de tester la compatibilité entre deux composants.
 
-Ainsi pour tester la compatibilité de deux blocs SysML, il suffit de transformer le diagramme de séquences associé à chaque bloc en un automate d'interfaces et de vérifier la compatibilité des automates.
+Ainsi pour tester la compatibilité de deux blocs SysML, il suffit de transformer le diagramme de séquences associé à chaque bloc en un automate d'interface et de vérifier la compatibilité des automates.
 
 La partie étude du projet a donc été consacrée à la transformation de modèle dans une première partie. Cette partie permettant à partir d'un méta modèle du diagramme de séquences, d'un fichier conforme à ce méta modèle et de règles ATL de générer un fichier conforme à un méta modèle correspondant à la syntaxe de Ticc. 
 La seconde partie ouvre la voie à la vérification de compatibilité d'automates, le fichier généré à partir d'ATL est, après traitement, exécutable par Ticc. 
