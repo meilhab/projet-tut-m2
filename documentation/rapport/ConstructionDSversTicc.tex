@@ -209,14 +209,16 @@ Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement corr
 
 Comme déjà établi tout au long du rapport, le schéma~\ref{ProcessusTransformation} ci-dessous permet de visualiser les différentes étapes de transformations de modèles, ainsi que l'implémentation réalisée dans le projet. 
 
+\clearpage
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[scale=0.7]{ProcessusTransformation2.png}
+	\includegraphics[scale=0.6]{vueEnsemble.png}
 	\caption{Processus de transformation d'un diagramme SysML en automate d'interface Ticc}
 	\label{ProcessusTransformation}
 
 \end{figure}
 
-Le diagramme de séquences traduit en fichier XMI suit les règles ATL pour être transformé en modèle Ticc également sous format XMI. A l'aide d'un parseur JDom, le modèle Ticc est transformé sous la syntaxe Ticc en un automate d'interface. Le fichier executable .in produit peut ensuite être interprété par Ticc pour la vérification de la compatibilité.
+Le processus commence avec deux bloc issus du BDD qui forment un diagramme de séquences. Lui-même est traduit en fichier XMI suivant les règles ATL. Ce fichier est ensuite transformé en modèle Ticc (également sous format XMI). A l'aide d'un parseur JDom, le modèle Ticc est transformé sous la syntaxe Ticc en un automate d'interface. Le fichier executable .in produit peut ensuite être interprété par Ticc pour la vérification de la compatibilité.
 
 \clearpage
