@@ -1,10 +1,11 @@
-\chapter{Vérification de compatibilité entre composants}
+\chapter{Vérification de la compatibilité entre blocs}
 
-\section{Automate d'interfaces}
+\section{Automate d'interface}
+\label{sectionAutomateInterface}
 
-La notion d'automate d'interfaces a été introduite par Alfaro et Henzinger~\cite{automataInterface} dans le but de modéliser les interfaces des composants et de décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie~\cite{automateIO} où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.
+La notion d'automate d'interface a été introduite par Alfaro et Henzinger~\cite{automataInterface} dans le but de modéliser les interfaces des composants et de décrire l'enchainement des appels de services. Ces automates sont issus des automates de type entrée/sortie~\cite{automateIO} où il n'est pas nécessaire d'avoir des actions d'entrée activables dans tous les états.
 
-Chaque composant est décrit par un seul automate d'interfaces. 
+Chaque composant est décrit par un seul automate d'interface. 
 L'ensemble des actions est décomposé en trois sous-ensembles : 
 \begin{itemize}
 	\item les actions d'entrée représentant les services offerts (identifiable par le caractère \enquote{?}) correspondant aux réceptions de messages;
@@ -13,17 +14,17 @@ L'ensemble des actions est décomposé en trois sous-ensembles :
 
 \end{itemize}
 
-\noindent La figure~\ref{exempleAutomateInterface} donne un exemple de représentation d'automates d'interfaces.
+\noindent La figure~\ref{exempleAutomateInterface} donne un exemple de représentation d'automates d'interface.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[scale=1]{exempleAutomateInterface.jpg}
-	\caption{Représentation d'automates d'interfaces}
+	\caption{Représentation d'automates d'interface}
 	\label{exempleAutomateInterface}
 
 \end{figure}
 
-\noindent Un automate d'interfaces $ A = \{S_A, I_A, \Sigma_A^I, \Sigma_A^O, \Sigma_A^H, \mathcal{T}_A\} $ est défini par :
+\noindent Un automate d'interface $ A = \{S_A, I_A, \Sigma_A^I, \Sigma_A^O, \Sigma_A^H, \mathcal{T}_A\} $ est défini par :
 \begin{itemize}
     \item un ensemble fini d'états $S_A$;
     \item un sous-ensemble fini d'états initiaux $I_A$ tel que $I_A \subseteq S_A$;
@@ -36,13 +37,13 @@ L'ensemble des actions est décomposé en trois sous-ensembles :
 
 \section{Compatibilité entre composants}
 
-Vérifier la compatibilité entre deux composants revient à vérifier la compatibilité entre leur deux automates d'interfaces respectif. Cependant, la vérification de cette compatibilité nécessite différentes étapes intermédiaires.
+Vérifier la compatibilité entre deux composants revient à vérifier la compatibilité entre leur deux automates d'interface respectif. Cependant, la vérification de cette compatibilité nécessite différentes étapes intermédiaires.
 
 \subsection{Composabilité de composants}
 
 Il faut commencer par vérifier que les deux automates sont composables, c'est à dire que leurs ensembles d'actions d'entrée, de sortie et internes sont disjoints.
 
-Deux automates d'interfaces P et Q sont composables si :
+Deux automates d'interface P et Q sont composables si :
 \begin{center}
 	\begin{tabular}{l c}
 		$\Sigma_P^H  \cap \Sigma_Q = \emptyset$ &
@@ -56,9 +57,9 @@ Deux automates d'interfaces P et Q sont composables si :
 
 \subsection{Produit synchronisé de composants}
 
-L'étape suivante consiste à faire le produit synchronisé des deux automates et vérifier qu'il ne possède pas d'états dît illégaux : ce sont des états à partir desquels une action de sortie partagée d'un automate ne peut pas être synchronisée avec la même action activée en entrée dans l'autre composant.
+L'étape suivante consiste à faire le produit synchronisé des deux automates et vérifier qu'il ne possède pas d'états dîts illégaux : ce sont des états à partir desquels une action de sortie partagée d'un automate ne peut pas être synchronisée avec la même action activée en entrée dans l'autre composant.
 
-Le produit synchronisé de deux automate d'interfaces P et Q  noté $A_P \otimes A_Q$ est défini par :
+Le produit synchronisé de deux automate d'interface P et Q  noté $A_P \otimes A_Q$ est défini par :
 \begin{itemize}
 	\item[$\bullet$] $S_{P \otimes Q} = S_P \times S_Q et I_{P \otimes Q} = I_P \times I_Q$;
 	\item[$\bullet$] $\Sigma_{P \otimes Q}^I = (\Sigma_P^I \cup \Sigma_Q^I) \setminus Shared(P,Q)$;
@@ -77,7 +78,7 @@ Avec $Shared(P,Q) = \Sigma_P \cap \Sigma_Q$.
 
 \subsection{Notion d'états illégaux}
 
-Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
+Les états illégaux entre deux automates d'interface P et Q sont définis par :
 \begin{center} 
 	{\footnotesize	$Illegal(P,Q) = \left\{(v,u) \in S_P \times S_Q \mid 
 		\exists a \in Shared(P,Q).
@@ -93,11 +94,11 @@ Les états illégaux entre deux automates d'interfaces P et Q sont définis par :
 
 \subsection{Compatibilité entre deux composants}
 
-Deux automates d'interfaces sont incompatibles s'il existe un état illégal atteignable depuis les états initiaux dans le produit synchronisé de deux composants.
+Deux automates d'interface sont incompatibles s'il existe un état illégal atteignable depuis les états initiaux dans le produit synchronisé de deux composants.
 
 
-\subsection{Compatibilité des automates d'interfaces avec Ticc}
+\subsection{Compatibilité des automates d'interface avec Ticc}
 
-Pour vérifier la compatibilité des automates d'interfaces via l'outil Ticc~\cite{ticcDocumentation, siteTicc}, il faut lancer le fichier .in. Ce fichier réalise la composition des interfaces deux à deux et affiche le résultat.
+Pour vérifier la compatibilité des automates d'interface via l'outil Ticc~\cite{ticcDocumentation, siteTicc}, il faut lancer le fichier .in. Ce fichier réalise la composition des interfaces deux à deux et affiche le résultat.
 
 \clearpage
