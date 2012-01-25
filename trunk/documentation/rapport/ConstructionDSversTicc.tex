@@ -196,12 +196,12 @@ En reprenant les deux méta modèles vus précédemment (figures~\ref{figureMMDiagSe
 
 Pour la validité de ces règles, il convient bien sûr que seuls les messages émis par le composant voulu et les messages qu'il reçoit sont intéressant. Les autres sont ignorés.
 
-Le fichier d'entrée exemple, le fichier des règles ATL et le fichier de sortie sont disponibles en annexe (\ref{fichierExempleEntree}, \ref{regleATL} et \ref{fichierExempleSortie}).
+Un fichier d'entrée exemple, un fichier de sortie et le fichier des règles ATL sont disponibles en annexe (\ref{fichierExempleEntree}, \ref{fichierExempleSortie} et \ref{regleATL}).
 
 \subsection{Parseur XML vers Ticc}
 
 Afin de pouvoir utiliser Ticc pour vérifier la compatibilité des composants, il est nécessaire de convertir le fichier XMI obtenu en sortie en un fichier .si compatible avec Ticc. Pour ce faire, un parseur XML a été implémenté. 
-Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement correcte, un fichier .si associé est généré ainsi qu'un fichier d'exécution .in. Ces fichiers peuvent eux aussi être trouvés en annexe (\ref{fichierParseSI} et \ref{fichierParseIN}).
+Il permet de récupérer un fichier XMI en entrée, et s'il est syntaxiquement correct, un fichier .si associé est généré ainsi qu'un fichier d'exécution .in. Ces fichiers peuvent eux aussi être trouvés en annexe (\ref{fichierParseSI} et \ref{fichierParseIN}).
 
 \label{compatibiliteAutomate}
 
@@ -217,6 +217,6 @@ Comme déjà établi tout au long du rapport, le schéma~\ref{ProcessusTransformatio
 
 \end{figure}
 
-Le diagramme de séquence traduit en fichier XMI suit les règles ATL pour être transformé en modèle Ticc également sous format XMI. A l'aide d'un parseur JDom, le modèle Ticc est transformé sous la syntaxe Ticc en un automate d'interface. Le fichier executable .in produit peut ensuite être interprété par Ticc pour la vérification de la compatibilité.
+Le diagramme de séquences traduit en fichier XMI suit les règles ATL pour être transformé en modèle Ticc également sous format XMI. A l'aide d'un parseur JDom, le modèle Ticc est transformé sous la syntaxe Ticc en un automate d'interface. Le fichier executable .in produit peut ensuite être interprété par Ticc pour la vérification de la compatibilité.
 
 \clearpage
