@@ -180,15 +180,20 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 \begin{document}
 %\maketitle
 \input{PageTitre}
-
+\thispagestyle{empty}
+\pagestyle{empty}
 \cleardoublepage
-
+\thispagestyle{empty}
+\pagestyle{empty}
 \input{Remerciement}
 
 \addtocontents{toc}{\protect\thispagestyle{empty}}
+\thispagestyle{empty}
+\pagestyle{empty}
 \tableofcontents
+\thispagestyle{empty}
+\pagestyle{empty}
 
-\setcounter{page}{1} 
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}} 
