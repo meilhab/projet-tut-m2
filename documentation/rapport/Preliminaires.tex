@@ -157,7 +157,7 @@ On le trouve soit sous forme de plugin d'eclipse, soit en tant qu'application RC
 
 S'appuyant principalement sur des langages standardisés pour la modélisation du logiciel (UML, SysML, AADL, \dots{}), Topcased travaille avec des fichiers XMI\protect\footnote{XML Metadata Interchange}. Tous ses standards sont implémentés dans leurs dernières versions stables, soit directement par le projet Topcased, soit par les modules de la dernière version stable de la plate-forme Eclipse. Sa dernière version étant la 5.1.0, basée sur Eclipse 3.7.1 (Indigo). La figure~\ref{exempleModelisationTopcased} montre différentes modélisations possibles avec Topcased.
 
-%\clearpage
+\clearpage
 
 \begin{figure}[!ht]
 	\centering 
@@ -234,16 +234,11 @@ Lors de la composition de deux interfaces des composants \textit{FireDetection} 
 On peut remarquer dans l'exemple de la figure~\ref{Detecteur de Fumee} que les deux automates d'interface sont incompatibles car l'un produit un événement \enquote{FD!} alors que l'autre non.
 
 \begin{figure}[!ht]
-	\begin{center}
-		\begin{minipage}{0.3\linewidth}
-		\centering \includegraphics[scale=0.68]{fireDetector.png}
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.3\linewidth}
-		\centering \includegraphics[scale=0.68]{controlUnit.png}
-		\end{minipage}
-		\caption{Detecteur de Fumée}
-	\end{center}
+  \centering
+  \subfloat[Fire Detector]{\includegraphics[scale=0.68]{fireDetector.png}}                
+  \subfloat[Control Unit]{\includegraphics[scale=0.68]{controlUnit.png}}
+  \caption{Détecteur de Fumée}
+  \label{Detecteur de Fumee}
 \end{figure}
 
 \clearpage
