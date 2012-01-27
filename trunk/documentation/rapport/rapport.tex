@@ -180,12 +180,13 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 \begin{document}
 %\maketitle
 \input{PageTitre}
+
 \cleardoublepage
+
 \input{Remerciement}
+
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents
-
-\clearpage
 
 \setcounter{page}{1} 
 
@@ -217,7 +218,6 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 %%%%% Ecrire la biblio ici
 \bibliography{Bibliographie}
 \addcontentsline{toc}{chapter}{Bibliographie}
-\clearpage
 
 \printindex
 
@@ -225,10 +225,9 @@ pdfborder = {0 0 0} 					% Style de bordure : ici, rien
 
 \listoffigures
 \addcontentsline{toc}{chapter}{Table des figures}
-\clearpage
 
 \input{Annexes}
-\clearpage
+
 \input{Resume}
 
 \end{document}
