@@ -1,6 +1,36 @@
 \section{Réalisation}
 
 \subsection{Transformation de modèles}
+\begin{frame}{Méta modèle}
+	\begin{block}{Signification}
+		\begin{itemize}
+			\item Grec \textit{méta} : changement, succession, transformation
+			\item Niveau d'abstraction supérieur
+			\item Un modèle représentant un modèle
+		
+		\end{itemize}			
+	
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{Transformation de modèles}
+	\centering
+	\includegraphics[scale=0.5]{./images/exogene.png}
+
+	\begin{block}{Passage d'un modèle à un autre}
+		\begin{itemize}
+			\item Modèle source conforme à son méta modèle
+			\item Modèle cible conforme à son méta modèle
+			\item Application de règles de transformation en utilisant les méta modèles source et cible
+		
+		\end{itemize}			
+	
+	\end{block}
+
+\end{frame}
+
+%
 
 \subsection{Les méta modèles}
 \begin{frame}{Diagramme de séquence}
@@ -35,8 +65,8 @@
 %
 
 \subsection{Exemple fichier conforme au diagramme de séquence}
-\begin{frame}{Fichier d'entrée}
-    \begin{block}{Explication}
+\begin{frame}{\'Ecriture d'un fichier d'entrée}
+    \begin{block}{Explications}
         \begin{itemize}
             \item Fichier de type XMI (XML Metadata Interchange)
             \item Conforme au méta modèle du diagramme de séquence
@@ -66,7 +96,7 @@
     \centering
     \includegraphics[scale=0.3]{./images/figureParseur.jpg}
 
-    \begin{block}{Explications}
+    \begin{block}{Fonctionnement}
         \begin{itemize}
             \item Fichier de sortie XMI conforme Ticc 
             \item Traitement avec JDom
@@ -81,6 +111,17 @@
 
 %
 
-\subsection{Traitement Ticc}
+\subsection{Vérification avec Ticc}
+\begin{frame}{Vérification avec Ticc}
+	\begin{block}{Principes}
+		\begin{itemize}
+			\item Vérification de compatibilité de deux modules
+			\item Utilisation des fichier .si et .in
+			\item Actuellement un fichier résultat trop volumineux
+		
+		\end{itemize}	
+	
+	\end{block}
 
+\end{frame}
 

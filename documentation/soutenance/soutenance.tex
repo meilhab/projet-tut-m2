@@ -5,8 +5,10 @@
 \usepackage[frenchb]{babel}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{textpos}
 
 \usetheme{Warsaw}
+%\usetheme{Antibes}
 
 \setbeamertemplate{navigation symbols}{}
 
@@ -56,6 +58,19 @@
 }
 
 \begin{document}
+	\begin{frame}
+    	\titlepage
+		\begin{textblock*}{2cm}(0cm,-2.5cm)
+  			%\rule{2cm}{1cm}% use the \includegraphics command here
+  			\includegraphics[scale=0.5]{./images/logoUfc.jpg}
+		\end{textblock*}
+		\begin{textblock*}{2cm}(8cm,-2.25cm)
+  			%\rule{2cm}{1cm}% use the \includegraphics command here
+  			\includegraphics[scale=0.5]{./images/logo_femto_st.jpg}
+		\end{textblock*}
+
+	\end{frame}
+
 
     \include{Introduction}
 
@@ -66,17 +81,5 @@
     \include{Realisation}
 
     \include{Conclusion}
-
-\begin{frame}{}
-    \begin{block}{}
-        \begin{itemize}
-            \item
-
-        \end{itemize}
-
-    \end{block}
-
-\end{frame}
-
 
 \end{document}
