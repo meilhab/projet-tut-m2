@@ -1,0 +1,8 @@
+open Ticc;;
+parse "fichierExemple.si";;
+
+let f1 = mk_sym "fireDetector";;
+let f2 = mk_sym "fireDetector";;
+
+let c = compose f1 f2;;
+print_symmod c;;

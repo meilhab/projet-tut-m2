@@ -3,12 +3,83 @@
 \subsection{Transformation de modèles}
 
 \subsection{Les méta modèles}
-%seq et ticc
-\subsection{Exemple Fichier conforme}
+\begin{frame}{Diagramme de séquence}
+    \centering
+    \includegraphics[scale=0.25]{./images/diagSeqExemple.png}
+
+    \begin{block}{Simplifications}
+        \begin{itemize}
+            \item Redéfinition de noms
+            \item Abandon synchronisation des messages
+            \item Garde les éléments utiles
+            \item Ajoute de nouveaux éléments
+
+        \end{itemize}
+
+    \end{block}
+
+\end{frame}
+
+\begin{frame}{Méta modèle du diagramme de séquences SysML}
+    \centering
+    \includegraphics[scale=0.5]{./images/MMDiagSeq.jpg}
+
+\end{frame}
+
+\begin{frame}{Méta modèle du langage Ticc}
+    \centering
+    \includegraphics[scale=0.5]{./images/MMTicc.jpg}
+
+\end{frame}
+
+%
+
+\subsection{Exemple fichier conforme au diagramme de séquence}
+\begin{frame}{Fichier d'entrée}
+    \begin{block}{Explication}
+        \begin{itemize}
+            \item Fichier de type XMI (XML Metadata Interchange)
+            \item Conforme au méta modèle du diagramme de séquence
+            \item Contient deux séquences
+            \item Une séquence reçoit/envoi des messages de/à l'extérieur 
+            vers un composant appelé \textit{Environnement} 
+
+        \end{itemize}
+
+    \end{block}
+
+\end{frame}
+
+%
 
 \subsection{Règles ATL}
+\begin{frame}{But des règles ATL}
+    \centering
+    \includegraphics[scale=0.5]{./images/figureSimilitudeSeqTicc.png}
+
+\end{frame}
+
+%
 
 \subsection{Parseur XML}
+\begin{frame}{Parseur XML}
+    \centering
+    \includegraphics[scale=0.3]{./images/figureParseur.jpg}
+
+    \begin{block}{Explications}
+        \begin{itemize}
+            \item Fichier de sortie XMI conforme Ticc 
+            \item Traitement avec JDom
+            \item Génération fichier .si contenant les modules
+            \item Génération fichier .in exécutable OCaml
+
+        \end{itemize}
+
+    \end{block}
+
+\end{frame}
+
+%
 
 \subsection{Traitement Ticc}
 
