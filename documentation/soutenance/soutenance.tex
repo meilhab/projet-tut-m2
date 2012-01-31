@@ -1,0 +1,83 @@
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\usetheme{Warsaw}
+
+\setbeamertemplate{navigation symbols}{}
+
+% Personnalisation du footer
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{\hspace*{-0.09cm}
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertshortdate
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+
+\hypersetup{
+    pdfauthor   = {Benoit Meilhac, Catherine Almeida},%
+    pdftitle    = {Transformation de diagramme de séquences SysML vers les automates d'interfaces
+        et vérification de la compatibilité avec l'outil Ticc},%
+    pdfsubject  = {Soutenance de projet tuteuré},%
+    pdfkeywords = {soutenance, transformation de modèles, SysML, automate interface},%
+    pdfcreator  = {PDFLaTeX},%
+    pdfproducer = {PDFLaTeX}%
+}
+
+\title[Projet tuteuré]{
+    Transformation de diagrammes de séquences SysML vers les automates 
+    d'interfaces et vérification de la compatibilité avec l'outil Ticc
+}
+
+\institute{
+    Département informatique\\
+    Université de Franche-Comté\\
+    Projet tuteuré\\
+    Année 2011-2012
+}
+
+\date{\today}
+
+\author{
+    Benoît MEILHAC\\
+    Catherine PINTO DOC SANTOS ALMEIDA
+}
+
+\begin{document}
+
+    \include{Introduction}
+
+    \include{Sujet}
+
+    \include{Outils}
+
+    \include{Realisation}
+
+    \include{Conclusion}
+
+    \begin{frame}
+        \frametitle{}
+        \begin{block}{}
+            \begin{itemize}
+                \item
+
+            \end{itemize}
+
+        \end{block}
+
+    \end{frame}
+
+
+\end{document}
