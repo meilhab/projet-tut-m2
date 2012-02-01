@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{textpos}
+\usepackage{url}
 
 \usetheme{Warsaw}
 %\usetheme{Antibes}
@@ -16,13 +17,14 @@
 \setbeamertemplate{footline}{
     \leavevmode%
     \hbox{\hspace*{-0.09cm}
-    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}\insertshorttitle
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+        \insertshorttitle
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
-    \usebeamerfont{section in head/foot}\insertshortdate
+        \usebeamerfont{section in head/foot}\insertshortdate
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
-    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+        \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
     \end{beamercolorbox}}%
     \vskip0pt%
 }
@@ -54,18 +56,16 @@
 
 \author{
     Benoît MEILHAC\\
-    Catherine PINTO DOC SANTOS ALMEIDA
+    Catherine PINTO DOS SANTOS ALMEIDA
 }
 
 \begin{document}
 	\begin{frame}
     	\titlepage
 		\begin{textblock*}{2cm}(0cm,-2.5cm)
-  			%\rule{2cm}{1cm}% use the \includegraphics command here
   			\includegraphics[scale=0.5]{./images/logoUfc.jpg}
 		\end{textblock*}
 		\begin{textblock*}{2cm}(8cm,-2.25cm)
-  			%\rule{2cm}{1cm}% use the \includegraphics command here
   			\includegraphics[scale=0.5]{./images/logo_femto_st.jpg}
 		\end{textblock*}
 
