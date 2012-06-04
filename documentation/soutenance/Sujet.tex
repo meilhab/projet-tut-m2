@@ -1,72 +1,73 @@
-\section{Présentation de l'entreprise}
+\section{Présentation du sujet}
 
-\begin{frame}{Présentation de l'entreprise}
-    \begin{block}{Activité}
+\subsection{Le sujet}
+\begin{frame}{Le sujet}
+    \begin{block}{Problématique}
         \begin{itemize}
-            \item Recherche \& Développement
-            \item Gestion de collections
-            \item Fourniture de logiciels métiers
+            \item Modélisation graphique : SysML
+            \item Vérification de l'assemblage de blocs
+            \item Nécessité d'un langage formel
+
         \end{itemize}
 
     \end{block}
-    
-    \begin{block}{Cadre de travail}
-        Collaboration avec l'équipe de développement
+
+\end{frame}
+
+%
+
+\subsection{SysML}
+\begin{frame}{Modélisation de systèmes}
+	\centering
+	\includegraphics[scale=0.5]{./images/sysml.jpg}
+
+    \begin{block}{SysML}
+        \begin{itemize}
+        	\item System Modeling Language
+            \item Langage de modélisation graphique
+            \item Basé sur UML
+            \item Adapté à l'Ingénierie Système (systèmes complexes hétérogènes)
+
+        \end{itemize}
+
     \end{block}
 
 \end{frame}
 
-%%
-
-\section{Présentation du sujet de stage}
-
-\subsection{Le sujet}
-\begin{frame}{Architecture actuelle}
-	\centering
-    \begin{textblock*}{2cm}(0.35cm,-2.65cm)
-        \includegraphics[scale=0.4]{./images/archi_evolution_skin}
-    \end{textblock*}
-
-\end{frame}
-
-\begin{frame}{Architecture souhaitée}
-	\centering
-    \begin{textblock*}{2cm}(0.35cm,-2.65cm)
-        \includegraphics[scale=0.4]{./images/archi_unification_skin}
+\begin{frame}{Points communs et divergences avec UML}
+    \centering
+    \begin{textblock*}{2cm}(-0.5cm,-2.5cm)
+        \includegraphics[scale=0.45]{./images/image5.jpg}
     \end{textblock*}
 
 \end{frame}
 
 %
 
-\subsection{Problématique et démarche}
-
-\begin{frame}{Problématique}
-    \begin{block}{{\'E}tat actuel}
+\subsection{Automates d'interface}
+\begin{frame}{Automates d'interface}
+    \centering
+    \includegraphics[scale=0.9]{./images/exempleAutomateInterface.jpg}
+    \begin{block}{Définition}
         \begin{itemize}
-        	\item Sources de données hétérogènes (documents, relations)
-        	\item Langage NXQL existant non adapté
+            \item Introduits par Alfaro et Henzinger en 2001
+            \item Modélisent les interfaces des composants
+            \item Description des actions internes/entrée/sortie
+
         \end{itemize}
 
-    \end{block}
-    
-    \begin{block}{Objectif}
-        Ecriture d'un moteur de requ{\^e}tes unifié
     \end{block}
 
 \end{frame}
 
-\begin{frame}{Démarche}
-    \begin{block}{}
-        \begin{enumerate}
-        	\item {\'E}tude préliminaire de Elasticsearch
-        	\item Implémentation du moteur de requ{\^e}tes
-        	\begin{itemize}
-        		\item Extension du langage de requ{\^e}tes existant
-        		\item Mise en place de trois stratégies différentes
-        	\end{itemize}
-        \end{enumerate}
-    \end{block}
+%
+
+\subsection{Vue globale du projet}
+\begin{frame}{\'Etapes du projet}
+    \centering
+    \begin{textblock*}{2cm}(-0.5cm,-2.5cm)
+        \includegraphics[scale=0.45]{./images/vueEnsemble.png}
+    \end{textblock*}
 
 \end{frame}
 

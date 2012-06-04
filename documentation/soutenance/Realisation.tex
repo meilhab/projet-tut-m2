@@ -1,202 +1,131 @@
-\section{Réalisations}
+\section{Réalisation}
 
-\subsection{Analyse de l'architecture des données}
-
-\begin{frame}{Contexte}
-	\begin{block}{Un document}
-		C'est une collection de propriétés.	
-	\end{block}
-	
-	\begin{block}{Un schéma}
-		Définit la structure d'un groupe de propriétés
-	\end{block}
-	
-	\begin{block}{Une relation}
-		Décrites suivant le standard Resource Description Framework.\\
-		Représentation sous forme de triplet : \\
-		\begin{center}
-			\textbf{(subject, predicate, object)}
-		\end{center}
-	\end{block}
-
-\end{frame}
-
-\begin{frame}{L'indexation}
-	\centering
-	\includegraphics[scale=0.6]{./images/exemple_indexation.png}
-
-	\begin{block}{Informations nécessaires}
+\subsection{Transformation de modèles}
+\begin{frame}{Méta modèle}
+	\begin{block}{Signification}
 		\begin{itemize}
-			\item Nom de l'index
-			\item Type de document
-			\item Clef unique
+			\item Grec \textit{méta} : changement, succession, transformation
+			\item Niveau d'abstraction supérieur
+			\item Un modèle représentant un modèle
+		
 		\end{itemize}			
 	
 	\end{block}
 
 \end{frame}
 
-\begin{frame}{Le mapping}
-    \begin{columns}
-        \begin{column}{0.4\linewidth}
-            \includegraphics[scale=0.45]{./images/exemple_mapping}
+\begin{frame}{Transformation de modèles}
+	\centering
+	\includegraphics[scale=0.5]{./images/exogene.png}
 
-        \end{column}
-
-        \begin{column}{0.5\linewidth}
-            \begin{block}{Le mapping}
-				\begin{itemize}
-					\item Type de donnée contenue
-					\item Critère d'analyse
-				\end{itemize}			
+	\begin{block}{Passage d'un modèle à un autre}
+		\begin{itemize}
+			\item Modèle source conforme à son méta modèle
+			\item Modèle cible conforme à son méta modèle
+			\item Application de règles de transformation en utilisant les méta modèles source et cible
+		
+		\end{itemize}			
 	
-			\end{block}
-
-        \end{column}
-
-    \end{columns}
-    
-\end{frame}
-
-\begin{frame}{Réalisation de tests}
-
-	\begin{block}{Tests structurels}
-		Définir l'impact du mapping sur la recherche de données dans l'index
-	\end{block}
-
-	\begin{block}{Tests syntaxiques}
-		Définir le r{\^o}le des requ{\^e}tes Elasticsearch
-	\end{block}
-
-	\begin{block}{But}
-		Production d'une documentation
 	\end{block}
 
 \end{frame}
 
 %
 
-\subsection{Implémentation du moteur de requ{\^e}tes}
-\begin{frame}{Le langage NXQL}
-	\begin{block}{Syntaxe de départ}
-		SELECT * \\
-		FROM <from-clause> \\
-		[WHERE <where-clause>]
-	\end{block}
-	\begin{block}{Syntaxe d'arrivée}
-		SELECT ( * | <select-clause> ) \\
-		FROM <from-clause> \\
-		[WHERE <where-clause>]
-	\end{block}
+%\subsection{Les méta modèles}
+\begin{frame}{Diagramme de séquences}
+    \centering
+    \includegraphics[scale=0.3]{./images/diagSeqExemple.png}
+
+    \begin{block}{Simplifications}
+        \begin{itemize}
+            \item Redéfinition de noms
+            \item Prise en compte des éléments utiles
+            \item Ajout de nouveaux éléments
+
+        \end{itemize}
+
+    \end{block}
+
 \end{frame}
 
-\begin{frame}{La grammaire}
+\begin{frame}{Méta modèle du diagramme de séquences SysML}
+    \centering
+    \includegraphics[scale=0.5]{./images/MMDiagSeq.jpg}
 
-	\centering
-	\includegraphics[scale=0.45]{./images/depthfirstadapter}
-	
-	\begin{block}{Parcours d'arbre}
-		\begin{itemize}
-			\item Génération d'un ensemble de classes permettant de :
-			\begin{itemize}
-				\item construire un arbre syntaxique,
-				\item parcourir cet arbre.
-			\end{itemize}
-			\item Implémentation du pattern visitor.
-        \end{itemize}
-	\end{block}
-	
 \end{frame}
 
-\begin{frame}{La stratégie simple}
+\begin{frame}{Méta modèle du langage Ticc}
+    \centering
+    \includegraphics[scale=0.5]{./images/MMTicc.jpg}
 
-	\centering
-	\includegraphics[scale=0.6]{./images/simpleQueryCompilator}
-	
-	\begin{block}{Concerne}
+\end{frame}
+
+%
+
+%\subsection{Exemple fichier conforme au diagramme de séquences}
+\begin{frame}{\'Ecriture d'un fichier d'entrée}
+    \begin{block}{Explications}
         \begin{itemize}
-            \item Les requ{\^e}tes NXQL simples
-            \item Transformation directe en critère ES
+            \item Fichier de type XMI (XML Metadata Interchange)
+            \item Conforme au méta modèle du diagramme de séquences
+            \item Contient deux séquences
+            \item Une séquence reçoit/envoi des messages de/à l'extérieur 
+            vers un composant appelé \textit{Environnement} 
+
         \end{itemize}
-    \end{block}	
-	
-   \begin{block}{Fonctionnement}
-        \begin{itemize}
-            \item Surcharger les méthodes \textit{out} du DepthFirstAdapter
-            \item 1 critère NXQL <=> 1 critère ES
-        \end{itemize}
+
     \end{block}
     
-\end{frame}
-
-\begin{frame}{La stratégie simple : diagramme UML}
-	\centering
-    \begin{textblock*}{2cm}(0.1cm,-2.8cm)
-        \includegraphics[scale=0.34]{./images/simple_strategy_uml}
-    \end{textblock*}
-\end{frame}
-
-\begin{frame}{La stratégie simple}
-
-	\begin{block}{Limites}
-        Traitement des requ{\^e}tes complexes.
-    \end{block}
-    
-\end{frame}
-
-\begin{frame}{La stratégie directe}
+    \vspace{0.5cm}
 
     \centering
-	\includegraphics[scale=0.6]{./images/directComplexQueryCompilator}
-	
-	\begin{block}{Concerne}
-        \begin{itemize}
-            \item Les requ{\^e}tes NXQL complexes
-        \end{itemize}
-    \end{block}	
-	
-   \begin{block}{Fonctionnement}
-        \begin{itemize}
-            \item Surcharger les méthodes du SimpleQueryCompilator
-            \item Extraire les identifiants issus de l'exécution de la sous-requ{\^e}te afin de les transmettre à la requ{\^e}te principale.
-        \end{itemize}
-    \end{block}
+    \includegraphics[scale=0.5]{./images/fichierEntreeDiag.png}
 
 \end{frame}
 
-\begin{frame}{La stratégie directe : diagramme UML}
-	\centering
-    \begin{textblock*}{2cm}(-0.7cm,-2.8cm)
-        \includegraphics[scale=0.32]{./images/direct_strategy_uml}
-    \end{textblock*}
-\end{frame}
+%
 
-\begin{frame}{La stratégie directe}
-
-    \begin{block}{Limites}
-        Génération d'identifiants trop importante (> 1024) non supportée par le moteur.
-    \end{block}
+%\subsection{Règles ATL}
+\begin{frame}{Règles ATL}
+    \centering
+    \includegraphics[scale=0.5]{./images/figureSimilitudeSeqTicc.png}
 
 \end{frame}
 
-\begin{frame}{La stratégie indirecte}
+%
 
-	\centering
-	\includegraphics[scale=0.6]{./images/indirectComplexQueryCompilator}
-	
-	\begin{block}{Concerne}
-        Les requ{\^e}tes NXQL complexes générant un grand nombre d'identifiants.
-    \end{block}	
+\subsection{Parseur XML}
+\begin{frame}{Parseur XML}
+    \centering
+    \includegraphics[scale=0.3]{./images/figureParseur.jpg}
 
     \begin{block}{Fonctionnement}
-        Utilisation de Collections Java
+        \begin{itemize}
+            \item Fichier de sortie XMI conforme Ticc 
+            \item Traitement avec JDom
+            \item Génération fichier .si contenant les modules
+            \item Génération fichier .in exécutable OCaml
+
+        \end{itemize}
+
     \end{block}
 
 \end{frame}
 
-\begin{frame}{La stratégie indirecte : diagramme UML}
-	\centering
-    \begin{textblock*}{2cm}(-1cm,-2.6cm)
-        \includegraphics[scale=0.32]{./images/indirect_strategy_uml}
-    \end{textblock*}
+%
+
+\subsection{Vérification avec Ticc}
+\begin{frame}{Vérification avec Ticc}
+	\begin{block}{Principes}
+		\begin{itemize}
+			\item Vérification de compatibilité de deux modules
+			\item Utilisation des fichiers .si et .in
+			\item Actuellement un fichier résultat trop volumineux
+		
+		\end{itemize}	
+	
+	\end{block}
+
 \end{frame}
+
