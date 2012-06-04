@@ -1,15 +1,24 @@
-\section{Outils utilisés}
+\section{Environnement Logiciel}
 
-\subsection{Environnement de modélisation}
-\begin{frame}{TopCased}
-    \begin{block}{Présentation}
+\subsection{Librairies et frameworks utilisés}
+\begin{frame}{Environnement Logiciel}
+    \begin{block}{Elasticearch}
         \begin{itemize}
-            \item Analyse d'exigences
-            \item Modélisation et simulation de modèles
-            \item Génération de code
-            \item Application RCP ou plugin Eclipse
-            \item \url{http://www.topcased.org}
+            \item Moteur d'indexation
+            \item Puissant et distribué (recherche en temps réel)
+            \item Intègre deux moteurs de recherche : document et index
+        \end{itemize}
 
+    \end{block}
+    
+    \begin{block}{SableCC}
+        \begin{itemize}
+        	\item Analyse LALR (Look Ahead Lef Recursive)
+            \item Générateur de compilateur
+            \item Parseur contruit automatiquement l'AST
+            \item N{\oe}uds de l'AST strictement typés
+            \item N{\oe}uds parcourus par un visiteur
+            \item Visiteur utilise le Pattern visitor
         \end{itemize}
 
     \end{block}
@@ -18,55 +27,18 @@
 
 %
 
-\subsection{Règles de transformation}
-\begin{frame}{ATL Transformation Language}
+\subsection{Démarche de développement}
+\begin{frame}{JUnit}
     \centering
-    \includegraphics[scale=0.5]{./images/imageATL.jpeg}
+    \includegraphics[scale=0.7]{./images/junit_logo.png}
 
-    \begin{block}{Présentation}
+    \begin{block}{}
         \begin{itemize}
-            \item Inclus avec TopCased
-            \item Langage utilisé dans la transformation de modèles
-            \item Permet d'écrire les correspondances entre deux éléments
-            \item Règles contenant du code OCL
-            \item \url{http://www.eclipse.org/atl}
-
+            \item Test Driven Development
+            \item Ecriture de tests unitaires
+            \item Description des exigences du code
         \end{itemize}
 
     \end{block}
 
 \end{frame}
-
-%
-
-\subsection{Vérification de compatibilité}
-\begin{frame}{Tool for Interface Compatibility and Composition}
-    \centering 
-    \begin{columns}
-        \begin{column}{0.4\linewidth}
-            \includegraphics[scale=0.5]{./images/imageTiccParse.jpeg}
-
-        \end{column}
-
-        \begin{column}{0.3\linewidth}
-            \includegraphics[scale=0.5]{./images/imageTiccExec.jpeg}
-
-        \end{column}
-
-    \end{columns}
-
-    \begin{block}{Présentation}
-        \begin{itemize}
-            \item Créé notamment par Alfaro
-            \item Permet de définir des automates d'interface et de les composer 
-            \item Possède un langage qui lui est propre
-            \item Formalise des composants
-            \item Utilisation : Un fichier composant .si et un exécutable (OCaml) .in
-            \item \url{http://dvlab.cse.ucsc.edu/Ticc}
-
-        \end{itemize}
-
-    \end{block}
-
-\end{frame}
-
